@@ -2,10 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import assetRoutes from './routes/assetRoutes';
-// import authRoutes from "./routes/auth";
-// import { authenticateToken } from "./middleware/authMiddleware";
 import { setupSwagger } from "./swagger"; // Ensure this path is correct
-// import icErpReceiptRoutes from "./routes/icErpReceipt";
 import { checkDbConnection } from "./lib/db";
 import os from 'os';
 
@@ -34,9 +31,7 @@ app.use(express.json());
 setupSwagger(app);
 
 // Define routes
-// app.use("/auth", authRoutes);
 app.use("/qrasset", assetRoutes);
-// app.use("/ic_receipt", authenticateToken, icErpReceiptRoutes);
 
 // Start the server
 app.listen(port, async () => {
