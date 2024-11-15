@@ -15,6 +15,14 @@ export const generateAndSaveQrCode = async (req: Request, res: Response) => {
     try {
         const dataQr = await GetDataGenerate();
 
+        // Check if no data is returned
+        if (dataQr.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "No data found for QR code generation."
+            });
+        }
+
         const filteredDataWithQRCode = await Promise.all(dataQr.map(async (item: any) => {
             const qrContent = {
                 entity_cd: item.entity_cd,
