@@ -63,7 +63,7 @@ router.post("/datawhere", DataWhere);
 /**
  * @swagger
  * /api/datawhere:
- *   get:
+ *   post:
  *     summary: Select Qr Asset with QR
  *     description: Run this URL to View all Data that has a QR Code
  *     tags: [For QR Code]
