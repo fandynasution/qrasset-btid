@@ -26,6 +26,7 @@ async function checkDbConnection() {
     return pool;
   } catch (error) {
     throw error;
+    process.exit(1);
   }
 }
 
