@@ -52,7 +52,6 @@ export const generateAndSaveQrCode = async (req: Request, res: Response) => {
 
         // Send the response with success message and inserted data
         res.json({
-            success: true,
             data // Optional: To send the DB insert result if needed
         });
     } catch (error) {

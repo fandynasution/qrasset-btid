@@ -10,28 +10,17 @@ router.get("/generate", generateAndSaveQrCode);
 /**
  * @swagger
  * /api/generate:
- *   post:
- *     summary: Login user
- *     description: Authenticate user with email and password to get token
- *     tags: [Auth]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               email:
- *                 type: string
- *                 example: "mgr@ifca.co.id"
- *               password:
- *                 type: string
- *                 example: "1fc41fc4"
+ *   get:
+ *     summary: Generate QR Code
+ *     description: Run this URL to Generate QR Code with condition data with NULL QR Code on DB
+ *     tags: [For Request Generate QR COde]
  *     responses:
  *       200:
- *         description: Successful login
- *       401:
- *         description: Invalid credentials
+ *         description: Successful Generate all Data
+ *       404:
+ *         description: No Data on DB with Empty QR Code (already generate)
+ *       500:
+ *         description: Erro Connection to DB
  */
 
 router.get("/datanonqr", DatanonQr);
