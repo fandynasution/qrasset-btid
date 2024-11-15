@@ -30,7 +30,6 @@ export const generateAndSaveQrCode = async (req: Request, res: Response) => {
                 fs.writeFileSync(filePath, qrCodeBuffer);
                 
                 // Prepare the data for database insertion
-
                 const urlPath = `${process.env.API_SWAGGER_URL}:${process.env.API_SWAGGER_PORT}/api/qrasset/qr/${fileName}`;
                 return {
                     entity_cd: item.entity_cd,
@@ -40,11 +39,12 @@ export const generateAndSaveQrCode = async (req: Request, res: Response) => {
             });
         }));
 
-        // Insert the QR code data into the database
+        // Insert or update the QR code data into the database
         const data = await QrCodeDataInsert(filteredDataWithQRCode);
 
         // Send the response with success message and inserted data
         res.json({
+            success: true,
             data // Optional: To send the DB insert result if needed
         });
     } catch (error) {
