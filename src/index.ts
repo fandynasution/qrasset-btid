@@ -10,7 +10,7 @@ import path from 'path';
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 9077;
+const port = process.env.PORT || 9090;
 
 const getLocalIP = () => {
   const interfaces = os.networkInterfaces();
