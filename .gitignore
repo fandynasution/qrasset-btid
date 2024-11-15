@@ -2,5 +2,5 @@ node_modules
 dist
 docker-compose.yaml
 Dockerfile
-
+src/storage
 .env
