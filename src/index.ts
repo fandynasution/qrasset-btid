@@ -5,6 +5,7 @@ import assetRoutes from './routes/assetRoutes';
 import { setupSwagger } from "./swagger"; // Ensure this path is correct
 import { checkDbConnection } from "./lib/db";
 import os from 'os';
+import path from 'path';
 
 dotenv.config();
 
@@ -31,6 +32,7 @@ app.use(express.json());
 setupSwagger(app);
 
 // Define routes
+app.use('/qrasset/storage', express.static(path.join(__dirname, 'storage')));
 app.use("/qrasset", assetRoutes);
 
 // Start the server
