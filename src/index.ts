@@ -32,8 +32,8 @@ app.use(express.json());
 setupSwagger(app);
 
 // Define routes
-app.use('/qrasset/storage', express.static(path.join(__dirname, 'storage')));
-app.use("/qrasset", assetRoutes);
+app.use('/api/qrasset', express.static(path.join(__dirname, 'storage')));
+app.use("/api", assetRoutes);
 
 // Start the server
 app.listen(port, async () => {
