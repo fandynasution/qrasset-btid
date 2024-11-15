@@ -33,10 +33,6 @@ export const QrCodeDataInsert = async (data: any) => {
   
       // Commit the transaction if all queries succeed
       await transaction.commit();
-      return { 
-        success: true,
-        message: "Success Generate QR Code"
-      };
     } catch (error) {
       // If an error occurs, rollback the transaction
       await transaction.rollback();

@@ -51,8 +51,9 @@ export const generateAndSaveQrCode = async (req: Request, res: Response) => {
         const data = await QrCodeDataInsert(filteredDataWithQRCode);
 
         // Send the response with success message and inserted data
-        res.json({
-            data // Optional: To send the DB insert result if needed
+        res.status(200).json({
+            success: true,
+            message: "Success Generate QR Code" // Optional: To send the DB insert result if needed
         });
     } catch (error) {
         console.error("Error in generating or saving QR codes:", error);
