@@ -28,12 +28,14 @@ export const generateAndSaveQrCode = async (req: Request, res: Response) => {
             
                 // Save the QR code buffer to the unique file path
                 fs.writeFileSync(filePath, qrCodeBuffer);
-            
+                
                 // Prepare the data for database insertion
+
+                const urlPath = `${process.env.API_SWAGGER_URL}:${process.env.API_SWAGGER_PORT}/api/qrasset/qr/${fileName}`;
                 return {
                     entity_cd: item.entity_cd,
                     reg_id: item.reg_id,
-                    qr_url_attachment: filePath, // File path to be stored in DB
+                    qr_url_attachment: urlPath, // File path to be stored in DB
                 };
             });
         }));
