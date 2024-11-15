@@ -10,6 +10,8 @@ const dbConfig = {
   database: process.env.DB_DATABASE,
   options: {
     encrypt: false,
+    enableArithAbort: true,
+    requestTimeout: 300000,
     trustServerCertificate: false, // Use `true` for self-signed certificates or if required
   },
 };
