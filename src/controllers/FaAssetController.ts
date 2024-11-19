@@ -11,7 +11,7 @@ export const DatanonQr = async (req: Request, res: Response) => {
         const datanonQr = await GetDatanonQr();
 
         if (datanonQr.length === 0) {
-            const errorMessage = "No data found";
+            const errorMessage = "No data non QR found on Database";
             logger.error(errorMessage); // Log error
             return res.status(404).json({
                 success: true,
@@ -41,7 +41,7 @@ export const DatawithQr = async (req: Request, res: Response) => {
         const dataWithQr = await GetDataWithQr();
 
         if (dataWithQr.length === 0) {
-            const errorMessage = "No data found";
+            const errorMessage = "No data with QR found on Database";
             logger.error(errorMessage); // Log error
             return res.status(404).json({
                 success: true,
@@ -83,7 +83,7 @@ export const DataWhere = async (req: Request, res: Response) => {
         const data = await GetDataWhere(entity_cd, reg_id);
 
         if (data.length === 0) {
-            const errorMessage = `No data found for entity_cd = ${entity_cd} and reg_id = ${reg_id}`;
+            const errorMessage = `No data found for entity_cd = ${entity_cd} and reg_id = ${reg_id} on Database`;
             logger.error(errorMessage); // Log error
             return res.status(404).json({
                 success: true,
@@ -129,7 +129,15 @@ export const DataUpdatePrint = async (req: Request, res: Response) => {
     }
 
     try {
-        const result = await UpdateDataPrint(dataArray);   
+        // Log each entry
+        dataArray.forEach((dataItem) => {
+            logger.info(`Processing data for entity_cd: ${dataItem.entity_cd}, reg_id: ${dataItem.reg_id}`);
+        });
+
+        // Call the function to update the data in the database
+        const result = await UpdateDataPrint(dataArray);
+
+        // Log the successful update to the database
         logger.info(`Success update data to Database`);
 
         res.status(200).json({
