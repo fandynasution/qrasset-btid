@@ -39,7 +39,7 @@ export const GetDataWhere = async (entity_cd: string, reg_id: string) => {
             .input('reg_id', reg_id)
             .query(`
                 SELECT * 
-                FROM v_fa_fasset_qrdata 
+                FROM mgr.v_fa_fasset_qrdata 
                 WHERE entity_cd = @entity_cd 
                 AND reg_id = @reg_id
             `);
