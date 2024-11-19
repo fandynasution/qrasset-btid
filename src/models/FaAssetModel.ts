@@ -29,28 +29,44 @@ export const GetDataWithQr = async () => {
     }
 };
 
-export const GetDataWhere = async (entity_cd: string, reg_id: string) => {
+export const GetDataWhere = async (data: DataItem[]) => {
+    if (data.length === 0) {
+        return { message: "No records to Fetch." };
+    }
+
+    let pool;
+    let transaction;
+    const resultData: any[] = [];  // To store the results of each query
+
     try {
-        const pool = await poolPromise;  // Get the pool connection
-        
-        // Use parameterized query to prevent SQL injection
-        const result = await pool.request()
-            .input('entity_cd', entity_cd)
-            .input('reg_id', reg_id)
-            .query(`
-                SELECT * 
-                FROM mgr.v_fa_fasset_qrdata 
-                WHERE entity_cd = @entity_cd 
-                AND reg_id = @reg_id
-            `);
-        
-        // Return the fetched data
-        return result.recordset;
+        const pool = await poolPromise;
+        transaction = pool.transaction();
+        await transaction.begin();
+
+        for (const entry of data) {
+            const result = await transaction.request()
+                .input('entity_cd', sql.VarChar, entry.entity_cd)
+                .input('reg_id', sql.VarChar, entry.reg_id)
+                .query(`
+                    SELECT * 
+                    FROM mgr.v_fa_fasset_qrdata 
+                    WHERE entity_cd = @entity_cd 
+                    AND reg_id = @reg_id
+                `);
+
+            // Store the result of each query in the resultData array
+            resultData.push(...result.recordset);  // Assuming `recordset` contains the result
+        }
+
+        await transaction.commit();
+        return {
+            data: resultData  // Include the result data in the response
+        };
     } catch (error) {
         console.error("Error fetching data", error);
         throw error;  // Rethrow the error to be handled in the controller
     }
-};
+}
 
 export const UpdateDataPrint = async (data: DataItem[]) => {
     if (data.length === 0) {
