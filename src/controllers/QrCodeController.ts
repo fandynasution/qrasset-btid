@@ -5,8 +5,9 @@ import fs from 'fs';
 import path from 'path';
 import { DataItem } from '../types/QrCodeTypes';
 
-const logDirPath = path.join(__dirname, '../storage/log'); // Folder path for logs
-const logFilePath = path.join(logDirPath, `log-${new Date().toISOString().split('T')[0]}.txt`); // Log file per day
+const logDirPath = path.join(__dirname, `../storage/log-${new Date().toISOString().split('T')[0]}`); // Folder path for logs
+const logFilesuccessPath = path.join(logDirPath, `SUCCESS.txt`); // Log file per day
+const logFileErrorPath = path.join(logDirPath, `Error.txt`); // Log file per day
 
 // Ensure the log directory exists
 if (!fs.existsSync(logDirPath)) {
@@ -29,7 +30,7 @@ export const generateAndSaveQrCode = async (req: Request, res: Response) => {
             
             // Log error
             const logMessage = `${new Date().toISOString()} - ERROR: ${errorMessage}\n`;
-            fs.appendFileSync(logFilePath, logMessage);
+            fs.appendFileSync(logFileErrorPath, logMessage);
 
             
             return res.status(404).json({
@@ -66,7 +67,7 @@ export const generateAndSaveQrCode = async (req: Request, res: Response) => {
         // Insert or update the QR code data into the database
         const data = await QrCodeDataInsert(filteredDataWithQRCode);
         const logMessage = `${new Date().toISOString()} - INFO: Success Generate QR Code\n`;
-        fs.appendFileSync(logFilePath, logMessage);
+        fs.appendFileSync(logFilesuccessPath, logMessage);
         // Send the response with success message and inserted data
         res.status(200).json({
             success: true,
@@ -75,7 +76,7 @@ export const generateAndSaveQrCode = async (req: Request, res: Response) => {
     } catch (error) {
         console.error("Error in generating or saving QR codes:", error);
         const logMessage = `${new Date().toISOString()} - ERROR: ${error}\n`;
-        fs.appendFileSync(logFilePath, logMessage);
+        fs.appendFileSync(logFileErrorPath, logMessage);
         res.status(500).json({
             success: false,
             message: "Failed to generate or save QR codes",
