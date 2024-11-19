@@ -83,14 +83,14 @@ export const DataWhere = async (req: Request, res: Response) => {
         const data = await GetDataWhere(entity_cd, reg_id);
 
         if (data.length === 0) {
-            const errorMessage = "No data found";
+            const errorMessage = `No data found for entity_cd = ${entity_cd} and reg_id = ${reg_id}`;
             logger.error(errorMessage); // Log error
             return res.status(404).json({
                 success: true,
                 message: errorMessage,
             });
         }   
-        logger.info(`Success get Data from Database with parameter entity_cd = @entity_cd and reg_id = @reg_id`);
+        logger.info(`Success get Data from Database with parameter entity_cd = ${entity_cd} and reg_id = ${reg_id}`);
 
         res.status(200).json({
             success: true,
