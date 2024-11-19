@@ -13,7 +13,6 @@ if (!fs.existsSync(logDirPath)) {
     fs.mkdirSync(logDirPath, { recursive: true }); // Create the log directory if it doesn't exist
 }
 
-
 export const DatanonQr = async (req: Request, res: Response) => {
     
     try {
