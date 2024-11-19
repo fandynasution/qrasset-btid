@@ -4,7 +4,13 @@ import { DataItem } from '../types/QrCodeTypes';
 import fs from 'fs';
 import path from 'path';
 
-const logFilePath = path.join(__dirname, '../storage/log', `log-${new Date().toISOString().split('T')[0]}.txt`); // Log file per day
+const logDirPath = path.join(__dirname, '../storage/log'); // Folder path for logs
+const logFilePath = path.join(logDirPath, `log-${new Date().toISOString().split('T')[0]}.txt`); // Log file per day
+
+// Ensure the log directory exists
+if (!fs.existsSync(logDirPath)) {
+    fs.mkdirSync(logDirPath, { recursive: true }); // Create the log directory if it doesn't exist
+}
 
 
 export const DatanonQr = async (req: Request, res: Response) => {
