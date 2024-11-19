@@ -7,7 +7,7 @@ import { DataItem } from '../types/QrCodeTypes';
 
 const logDirPath = path.join(__dirname, `../storage/log-${new Date().toISOString().split('T')[0]}`); // Folder path for logs
 const logFilesuccessPath = path.join(logDirPath, `SUCCESS.txt`); // Log file per day
-const logFileErrorPath = path.join(logDirPath, `Error.txt`); // Log file per day
+const logFileErrorPath = path.join(logDirPath, `ERROR.txt`); // Log file per day
 
 // Ensure the log directory exists
 if (!fs.existsSync(logDirPath)) {
