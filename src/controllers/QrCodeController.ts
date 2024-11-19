@@ -45,23 +45,23 @@ export const generateAndSaveQrCode = async (req: Request, res: Response) => {
                 reg_id: item.reg_id
             };
             
-            return QRCode.toBuffer(JSON.stringify(qrContent), { type: 'png', scale: 12 }).then((qrCodeBuffer) => {
-                // Step 3: Generate a file name using reg_id and replace "/" with "_"
-                let fileName = `${item.reg_id.replace(/\//g, '_')}.png`;
-                let filePath = path.join(storagePath, fileName);
+            const qrCodeSvg = await QRCode.toString(JSON.stringify(qrContent), { type: 'svg' });
+
+            // Generate a file name using reg_id and replace "/" with "_"
+            const fileName = `${item.reg_id.replace(/\//g, '_')}.svg`;
+            const filePath = path.join(storagePath, fileName);
+
+            // Save the SVG string to a file
+            fs.writeFileSync(filePath, qrCodeSvg);
+
+            // Prepare the data for database insertion
+            const urlPath = `${process.env.API_SWAGGER_URL}:${process.env.API_SWAGGER_PORT}/api/qrasset/qr/${fileName}`;
             
-                // Save the QR code buffer to the unique file path
-                fs.writeFileSync(filePath, qrCodeBuffer);
-                
-                // Prepare the data for database insertion
-                const urlPath = `${process.env.API_SWAGGER_URL}:${process.env.API_SWAGGER_PORT}/api/qrasset/qr/${fileName}`;
-                
-                return {
-                    entity_cd: item.entity_cd,
-                    reg_id: item.reg_id,
-                    qr_url_attachment: urlPath, // File path to be stored in DB
-                };
-            });
+            return {
+                entity_cd: item.entity_cd,
+                reg_id: item.reg_id,
+                qr_url_attachment: urlPath, // File path to be stored in DB
+            };
         }));
 
         // Insert or update the QR code data into the database
