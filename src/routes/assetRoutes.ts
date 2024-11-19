@@ -1,6 +1,6 @@
 import express from 'express';
 import { generateAndSaveQrCode } from '../controllers/QrCodeController';
-import { DatanonQr, DatawithQr, DataWhere } from '../controllers/FaAssetController';
+import { DatanonQr, DatawithQr, DataWhere, UpdateDataPrint } from '../controllers/FaAssetController';
 
 const router = express.Router();
 
@@ -63,6 +63,35 @@ router.post("/datawhere", DataWhere);
 /**
  * @swagger
  * /api/datawhere:
+ *   post:
+ *     summary: Select Qr Asset with QR
+ *     description: Run this URL to View all Data that has a QR Code
+ *     tags: [For QR Code]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               entity_cd:
+ *                 type: string
+ *                 example: "01"
+ *               reg_id:
+ *                 type: string
+ *                 example: "001/LND/BTID/III/17"
+ *     responses:
+ *       200:
+ *         description: Successful Select Data 
+ *       404:
+ *         description: No Data on DB
+ *       500:
+ *         description: Error Connection to DB
+ */
+router.put('/update-print', UpdateDataPrint);
+/**
+ * @swagger
+ * /api/update:
  *   post:
  *     summary: Select Qr Asset with QR
  *     description: Run this URL to View all Data that has a QR Code

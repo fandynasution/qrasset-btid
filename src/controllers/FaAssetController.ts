@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { GetDatanonQr, GetDataWhere, GetDataWithQr } from '../models/FaAssetModel';
+import { GetDatanonQr, GetDataWhere, GetDataWithQr, UpdatePrint } from '../models/FaAssetModel';
 
 
 export const DatanonQr = async (req: Request, res: Response) => {
@@ -84,6 +84,32 @@ export const DataWhere = async (req: Request, res: Response) => {
         res.status(500).json({
             success: false,
             message: "Failed to Fetch Data",
+            error: error instanceof Error ? error.message : "Unknown error occurred",
+        });
+    }
+}
+
+export const UpdateDataPrint = async (req:Request, res:Response) => {
+    try {
+        const dataArray = req.body;
+
+        // Validate that the input is an array
+        if (!Array.isArray(dataArray) || dataArray.length === 0) {
+            return res.status(400).json({ error: 'Invalid input, expected a non-empty array' });
+        }
+
+        const updateRecords = await UpdatePrint(dataArray);
+
+        res.status(200).json({
+            success: true,
+            message: "Success",
+            data: updateRecords,
+        });
+    } catch (error) {
+        console.error('Error in updatePrintController:', error);
+        res.status(500).json({
+            success: false,
+            message: "An error occurred while updating data",
             error: error instanceof Error ? error.message : "Unknown error occurred",
         });
     }
