@@ -7,7 +7,7 @@ export const GetDatanonQr = async () => {
     try {
         const pool = await poolPromise;  // Get the pool
         const result = await pool.request().query(`
-            SELECT * FROM mgr.QrData WHERE qr_url_attachment IS NULL OR qr_url_attachment = ''
+            SELECT * FROM mgr.v_fa_fasset_qrdata WHERE qr_url_attachment IS NULL OR qr_url_attachment = ''
         `);
         return result.recordset;
     } catch (error) {
@@ -20,7 +20,7 @@ export const GetDataWithQr = async () => {
     try {
         const pool = await poolPromise;  // Get the pool
         const result = await pool.request().query(`
-            SELECT * FROM mgr.QrData WHERE qr_url_attachment IS NOT NULL AND qr_url_attachment <> ''
+            SELECT * FROM mgr.v_fa_fasset_qrdata WHERE qr_url_attachment IS NOT NULL AND qr_url_attachment <> ''
         `);
         return result.recordset;
     } catch (error) {
@@ -39,7 +39,7 @@ export const GetDataWhere = async (entity_cd: string, reg_id: string) => {
             .input('reg_id', reg_id)
             .query(`
                 SELECT * 
-                FROM mgr.QrData 
+                FROM v_fa_fasset_qrdata 
                 WHERE entity_cd = @entity_cd 
                 AND reg_id = @reg_id
             `);
