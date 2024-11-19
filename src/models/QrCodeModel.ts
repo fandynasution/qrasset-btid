@@ -5,7 +5,7 @@ export const GetDataGenerate = async () => {
     try {
         const pool = await poolPromise;  // Get the pool
         const result = await pool.request().query(`
-            SELECT * FROM mgr.fa_fasset WHERE qr_url_attachment IS NULL OR qr_url_attachment = ''
+            SELECT * FROM mgr.v_fa_fasset_qrdata WHERE qr_url_attachment IS NULL OR qr_url_attachment = ''
         `);
         return result.recordset;
     } catch (error) {
