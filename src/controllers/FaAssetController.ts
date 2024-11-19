@@ -80,7 +80,6 @@ export const DataWhere = async (req: Request, res: Response) => {
             data: data,
         });
     } catch (error) {
-        console.error("Failed to Fetch Data:", error);
         res.status(500).json({
             success: false,
             message: "Failed to Fetch Data",
