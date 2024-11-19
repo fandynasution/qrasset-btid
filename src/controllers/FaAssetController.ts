@@ -3,15 +3,7 @@ import { GetDatanonQr, GetDataWhere, GetDataWithQr, UpdateDataPrint } from '../m
 import { DataItem } from '../types/QrCodeTypes';
 import fs from 'fs';
 import path from 'path';
-
-const logDirPath = path.join(__dirname, `../storage/log-${new Date().toISOString().split('T')[0]}`); // Folder path for logs
-const logFilesuccessPath = path.join(logDirPath, `SUCCESS.txt`); // Log file per day
-const logFileErrorPath = path.join(logDirPath, `ERROR.txt`); // Log file per day
-
-// Ensure the log directory exists
-if (!fs.existsSync(logDirPath)) {
-    fs.mkdirSync(logDirPath, { recursive: true }); // Create the log directory if it doesn't exist
-}
+import logger from "../logger";
 
 export const DatanonQr = async (req: Request, res: Response) => {
     
@@ -20,19 +12,14 @@ export const DatanonQr = async (req: Request, res: Response) => {
 
         if (datanonQr.length === 0) {
             const errorMessage = "No data found";
-            
-            // Log error
-            const logMessage = `${new Date().toISOString()} - ERROR: ${errorMessage}\n`;
-            fs.appendFileSync(logFileErrorPath, logMessage);
-
+            logger.error(errorMessage); // Log error
             return res.status(404).json({
                 success: true,
                 message: errorMessage,
             });
         }   
-        // Log error
-        const logMessage = `${new Date().toISOString()} - INFO: SUCCESS\n`;
-        fs.appendFileSync(logFilesuccessPath, logMessage);
+        
+        logger.info('Success get Data non QR from Database');
 
         res.status(200).json({
             success: true,
@@ -40,9 +27,7 @@ export const DatanonQr = async (req: Request, res: Response) => {
             data: datanonQr
         });
     } catch (error) {
-        console.error("Failed to Fetch Data:", error);
-        const logMessage = `${new Date().toISOString()} - ERROR: ${error}\n`;
-        fs.appendFileSync(logFileErrorPath, logMessage);
+        logger.error(`Failed to Fetch Data: ${error instanceof Error ? error.message : error}`);
         res.status(500).json({
             success: false,
             message: "Failed to Fetch Data",
@@ -57,29 +42,22 @@ export const DatawithQr = async (req: Request, res: Response) => {
 
         if (dataWithQr.length === 0) {
             const errorMessage = "No data found";
-            
-            // Log error
-            const logMessage = `${new Date().toISOString()} - ERROR: ${errorMessage}\n`;
-            fs.appendFileSync(logFileErrorPath, logMessage);
-
+            logger.error(errorMessage); // Log error
             return res.status(404).json({
                 success: true,
                 message: errorMessage,
             });
         }
 
-        const logMessage = `${new Date().toISOString()} - INFO: SUCCESS\n`;
-        fs.appendFileSync(logFilesuccessPath, logMessage);
-
+        logger.info('Success get Data with QR from Database');
+        
         res.status(200).json({
             success: true,
             message: "Success",
             data: dataWithQr
         });
     } catch (error) {
-        console.error("Failed to Fetch Data:", error);
-        const logMessage = `${new Date().toISOString()} - ERROR: ${error}\n`;
-        fs.appendFileSync(logFileErrorPath, logMessage);
+        logger.error(`Failed to Fetch Data: ${error instanceof Error ? error.message : error}`);
         res.status(500).json({
             success: false,
             message: "Failed to Fetch Data",
@@ -94,10 +72,7 @@ export const DataWhere = async (req: Request, res: Response) => {
 
         if (!entity_cd || !reg_id) {
             const errorMessage = "entity_cd and reg_id are required";
-            
-            // Log error
-            const logMessage = `${new Date().toISOString()} - ERROR: ${errorMessage}\n`;
-            fs.appendFileSync(logFileErrorPath, logMessage);
+            logger.error(errorMessage); // Log error
 
             return res.status(400).json({
                 success: false,
@@ -109,19 +84,13 @@ export const DataWhere = async (req: Request, res: Response) => {
 
         if (data.length === 0) {
             const errorMessage = "No data found";
-            
-            // Log error
-            const logMessage = `${new Date().toISOString()} - ERROR: ${errorMessage}\n`;
-            fs.appendFileSync(logFilesuccessPath, logMessage);
-
+            logger.error(errorMessage); // Log error
             return res.status(404).json({
                 success: true,
                 message: errorMessage,
             });
         }   
-        // Log error
-        const logMessage = `${new Date().toISOString()} - INFO: SUCCESS\n`;
-        fs.appendFileSync(logFileErrorPath, logMessage);
+        logger.info(`Success get Data from Database with parameter entity_cd = @entity_cd and reg_id = @reg_id`);
 
         res.status(200).json({
             success: true,
@@ -129,8 +98,7 @@ export const DataWhere = async (req: Request, res: Response) => {
             data: data,
         });
     } catch (error) {
-        const logMessage = `${new Date().toISOString()} - ERROR: ${error}\n`;
-        fs.appendFileSync(logFileErrorPath, logMessage);
+        logger.error(`Failed to Fetch Data: ${error instanceof Error ? error.message : error}`);
         res.status(500).json({
             success: false,
             message: "Failed to Fetch Data",
@@ -152,11 +120,7 @@ export const DataUpdatePrint = async (req: Request, res: Response) => {
     // Check for required fields in each entry
     if (!dataArray.every(hasRequiredFields)) {
         const errorMessage = "entity_cd and reg_id are required";
-            
-        // Log error
-        const logMessage = `${new Date().toISOString()} - ERROR: ${errorMessage}\n`;
-        fs.appendFileSync(logFileErrorPath, logMessage);
-
+        logger.error(errorMessage); // Log error
             
         return res.status(400).json({
             success: false,
@@ -166,17 +130,14 @@ export const DataUpdatePrint = async (req: Request, res: Response) => {
 
     try {
         const result = await UpdateDataPrint(dataArray);   
-        // Log error
-        const logMessage = `${new Date().toISOString()} - INFO: SUCCESS Update Status\n`;
-        fs.appendFileSync(logFilesuccessPath, logMessage);
+        logger.info(`Success update data to Database`);
 
         res.status(200).json({
             result
         });
     } catch (error: unknown) {
         if (error instanceof Error) {
-            const logMessage = `${new Date().toISOString()} - ERROR: ${error}\n`;
-            fs.appendFileSync(logFileErrorPath, logMessage);
+            logger.error(`Failed to update Data Print: ${error instanceof Error ? error.message : error}`);
         
             res.status(500).json({
                 success: false,
@@ -185,8 +146,7 @@ export const DataUpdatePrint = async (req: Request, res: Response) => {
                 stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
             });
         } else {
-            const logMessage = `${new Date().toISOString()} - ERROR: "An unknown error occurred"\n`;
-            fs.appendFileSync(logFileErrorPath, logMessage);
+            logger.error(`Failed to update Data Print: ${error instanceof Error ? error.message : error}`);
         
             res.status(500).json({
                 success: false,
