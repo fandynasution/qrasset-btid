@@ -96,30 +96,41 @@ router.put('/update-print', DataUpdatePrint);
  * /api/update-print:
  *   put:
  *     summary: Update Qr Asset after print
- *     description: Run this URL to update multiple Qr Assets after print
+ *     description: Run this URL to update multiple Qr Assets after print or a single asset.
  *     tags: [For QR Code]
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
- *             type: array
- *             items:
- *               type: object
- *               properties:
- *                 entity_cd:
- *                   type: string
- *                   description: Entity code
- *                   example: "01"
- *                 reg_id:
- *                   type: string
- *                   description: Registration ID
- *                   example: "001/SFW/BTID/IV/24"
- *             example:
- *               - entity_cd: "01"
- *                 reg_id: "001/SFW/BTID/IV/24"
- *               - entity_cd: "01"
- *                 reg_id: "175/FF/BTID/XI/2023"
+ *             oneOf:
+ *               - type: object
+ *                 properties:
+ *                   entity_cd:
+ *                     type: string
+ *                     description: Entity code
+ *                     example: "01"
+ *                   reg_id:
+ *                     type: string
+ *                     description: Registration ID
+ *                     example: "001/SFW/BTID/IV/24"
+ *               - type: array
+ *                 items:
+ *                   type: object
+ *                   properties:
+ *                     entity_cd:
+ *                       type: string
+ *                       description: Entity code
+ *                       example: "01"
+ *                     reg_id:
+ *                       type: string
+ *                       description: Registration ID
+ *                       example: "001/SFW/BTID/IV/24"
+ *                 example:
+ *                   - entity_cd: "01"
+ *                     reg_id: "001/SFW/BTID/IV/24"
+ *                   - entity_cd: "01"
+ *                     reg_id: "175/FF/BTID/XI/2023"
  *     responses:
  *       200:
  *         description: Successful Select Data 
@@ -128,5 +139,6 @@ router.put('/update-print', DataUpdatePrint);
  *       500:
  *         description: Error Connection to DB
  */
+
 
 export default router;
