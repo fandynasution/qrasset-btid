@@ -92,7 +92,7 @@ export const UpdateDataPrint = async (data: DataItem[]) => {
         await transaction.commit();
         return {
             success: true,
-            message: "All records inserted successfully."
+            message: "All records updated successfully."
         };
     } catch (error) {
         console.error("Error updating data", error);
