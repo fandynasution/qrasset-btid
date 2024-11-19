@@ -2,7 +2,8 @@ import path from 'path';
 import winston from 'winston';
 import moment from 'moment-timezone';
 
-const logsDirectory = path.join(__dirname, '..', '..', 'logs');
+const todayDate = moment().tz('Asia/Jakarta').format('YYYY-MM-DD');
+const logsDirectory = path.join(__dirname, '..', '..', 'logs', todayDate);
 const errorLogPath = path.join(logsDirectory, 'error.log');
 const successLogPath = path.join(logsDirectory, 'success.log');
 const combinedLogPath = path.join(logsDirectory, 'combined.log');
