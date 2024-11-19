@@ -59,9 +59,7 @@ export const GetDataWhere = async (data: DataItem[]) => {
         }
 
         await transaction.commit();
-        return {
-            data: resultData  // Include the result data in the response
-        };
+        return resultData;  // Include the result data in the response        
     } catch (error) {
         console.error("Error fetching data", error);
         throw error;  // Rethrow the error to be handled in the controller
