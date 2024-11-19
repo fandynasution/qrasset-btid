@@ -133,7 +133,7 @@ router.put('/update-print', DataUpdatePrint);
  *                     reg_id: "175/FF/BTID/XI/2023"
  *     responses:
  *       200:
- *         description: Successful Select Data 
+ *         description: Successful Update Data
  *       404:
  *         description: No Data on DB
  *       500:
