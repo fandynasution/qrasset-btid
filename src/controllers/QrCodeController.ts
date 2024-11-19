@@ -5,6 +5,8 @@ import fs from 'fs';
 import path from 'path';
 import { DataItem } from '../types/QrCodeTypes';
 
+const logFilePath = path.join(__dirname, '../storage/log', `log-${new Date().toISOString().split('T')[0]}.txt`); // Log file per day
+
 export const generateAndSaveQrCode = async (req: Request, res: Response) => {
     const storagePath = path.join(__dirname, '..', 'storage', 'qr'); 
 
@@ -17,9 +19,16 @@ export const generateAndSaveQrCode = async (req: Request, res: Response) => {
 
         // Check if no data is returned
         if (dataQr.length === 0) {
+            const errorMessage = "No data found for QR code generation.";
+            
+            // Log error
+            const logMessage = `${new Date().toISOString()} - ERROR: ${errorMessage}\n`;
+            fs.appendFileSync(logFilePath, logMessage);
+
+            
             return res.status(404).json({
                 success: false,
-                message: "No data found for QR code generation."
+                message: errorMessage
             });
         }
 
@@ -39,6 +48,7 @@ export const generateAndSaveQrCode = async (req: Request, res: Response) => {
                 
                 // Prepare the data for database insertion
                 const urlPath = `${process.env.API_SWAGGER_URL}:${process.env.API_SWAGGER_PORT}/api/qrasset/qr/${fileName}`;
+                
                 return {
                     entity_cd: item.entity_cd,
                     reg_id: item.reg_id,
@@ -49,7 +59,8 @@ export const generateAndSaveQrCode = async (req: Request, res: Response) => {
 
         // Insert or update the QR code data into the database
         const data = await QrCodeDataInsert(filteredDataWithQRCode);
-
+        const logMessage = `${new Date().toISOString()} - INFO: Success Generate QR Code\n`;
+        fs.appendFileSync(logFilePath, logMessage);
         // Send the response with success message and inserted data
         res.status(200).json({
             success: true,
@@ -57,6 +68,8 @@ export const generateAndSaveQrCode = async (req: Request, res: Response) => {
         });
     } catch (error) {
         console.error("Error in generating or saving QR codes:", error);
+        const logMessage = `${new Date().toISOString()} - ERROR: ${error}\n`;
+        fs.appendFileSync(logFilePath, logMessage);
         res.status(500).json({
             success: false,
             message: "Failed to generate or save QR codes",

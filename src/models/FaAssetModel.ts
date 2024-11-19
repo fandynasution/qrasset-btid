@@ -54,7 +54,7 @@ export const GetDataWhere = async (entity_cd: string, reg_id: string) => {
 
 export const UpdateDataPrint = async (data: DataItem[]) => {
     if (data.length === 0) {
-        return { message: "No records to insert." };
+        return { message: "No records to Update." };
     }
 
     let pool;
