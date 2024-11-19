@@ -94,21 +94,30 @@ router.put('/update-print', UpdateDataPrint);
  * /api/update-print:
  *   put:
  *     summary: Update Qr Asset after print
- *     description: Run this URL to update Qr Asset after print
+ *     description: Run this URL to update multiple Qr Assets after print
  *     tags: [For QR Code]
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
- *             type: object
- *             properties:
- *               entity_cd:
- *                 type: string
- *                 example: "01"
- *               reg_id:
- *                 type: string
- *                 example: "001/LND/BTID/III/17"
+ *             type: array
+ *             items:
+ *               type: object
+ *               properties:
+ *                 entity_cd:
+ *                   type: string
+ *                   description: Entity code
+ *                   example: "01"
+ *                 reg_id:
+ *                   type: string
+ *                   description: Registration ID
+ *                   example: "001/SFW/BTID/IV/24"
+ *             example:
+ *               - entity_cd: "01"
+ *                 reg_id: "001/SFW/BTID/IV/24"
+ *               - entity_cd: "01"
+ *                 reg_id: "175/FF/BTID/XI/2023"
  *     responses:
  *       200:
  *         description: Successful Select Data 
