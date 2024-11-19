@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { GetDatanonQr, GetDataWhere, GetDataWithQr, UpdatePrint } from '../models/FaAssetModel';
-
+import { GetDatanonQr, GetDataWhere, GetDataWithQr, UpdateDataPrint } from '../models/FaAssetModel';
+import { DataItem } from '../types/QrCodeTypes';
 
 export const DatanonQr = async (req: Request, res: Response) => {
     try {
@@ -89,28 +89,43 @@ export const DataWhere = async (req: Request, res: Response) => {
     }
 }
 
-export const UpdateDataPrint = async (req:Request, res:Response) => {
-    try {
-        const dataArray = req.body;
+export const DataUpdatePrint = async (req: Request, res: Response) => {
+    const printUpdateDataD = req.body;
 
-        // Validate that the input is an array
-        if (!Array.isArray(dataArray) || dataArray.length === 0) {
-            return res.status(400).json({ error: 'Invalid input, expected a non-empty array' });
-        }
+    // Check if the input is an array or a single object, then normalize it to an array
+    const dataArray: DataItem[] = Array.isArray(printUpdateDataD) ? printUpdateDataD : [printUpdateDataD];
 
-        const updateRecords = await UpdatePrint(dataArray);
+    // Validate that each entry has the required fields
+    const hasRequiredFields = (detail: DataItem) =>
+        detail.entity_cd && detail.reg_id;
 
-        res.status(200).json({
-            success: true,
-            message: "Success",
-            data: updateRecords,
-        });
-    } catch (error) {
-        console.error('Error in updatePrintController:', error);
-        res.status(500).json({
+    // Check for required fields in each entry
+    if (!dataArray.every(hasRequiredFields)) {
+        return res.status(400).json({
             success: false,
-            message: "An error occurred while updating data",
-            error: error instanceof Error ? error.message : "Unknown error occurred",
+            message: "entity_cd and reg_id are required",
         });
+    }
+
+    try {
+        const result = await UpdateDataPrint(dataArray);
+        res.status(201).json({
+            result
+        });
+    } catch (error: unknown) {
+        if (error instanceof Error) {
+            res.status(500).json({
+                success: false,
+                message: "Failed to update Data Print",
+                error: error.message,
+                stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
+            });
+        } else {
+            res.status(500).json({
+                success: false,
+                message: "Failed to update Data Print",
+                error: "An unknown error occurred"
+            });
+        }
     }
 }

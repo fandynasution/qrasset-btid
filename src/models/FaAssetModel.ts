@@ -1,4 +1,5 @@
 import { poolPromise } from '../lib/db';
+import { Request, Response } from "express";
 import * as sql from 'mssql';
 import { DataItem } from '../types/QrCodeTypes';
 
@@ -51,40 +52,36 @@ export const GetDataWhere = async (entity_cd: string, reg_id: string) => {
     }
 };
 
-export const UpdatePrint = async (dataArray: DataItem[]) => {
+export const UpdateDataPrint = async (data: DataItem[]) => {
+    if (data.length === 0) {
+        return { message: "No records to insert." };
+    }
+
+    let pool;
+    let transaction;
+
     try {
-        const pool = await poolPromise;  // Get the pool connection
-        
-        // Check if the input is an array
-        if (!Array.isArray(dataArray)) {
-            throw new Error('Input data must be an array');
+        const pool = await poolPromise;
+        transaction = pool.transaction();
+        await transaction.begin();
+
+        for (const entry of data) {
+            await transaction.request()
+                .input('entity_cd', sql.VarChar, entry.entity_cd)
+                .input('reg_id', sql.VarChar, entry.reg_id)
+                .query(`
+                    update mgr.fa_fasset set isprint = 'Y'
+                    where entity_cd = @entity_cd and reg_id = @reg_id
+                `);
         }
 
-        const results = await Promise.all(
-            dataArray.map(async (item) => {
-                const {entity_cd, reg_id} = item;
-                const result = await pool.request()
-                    .input('entity_cd', entity_cd)
-                    .input('reg_id', reg_id)
-                    .query(`
-                        UPDATE mgr.fa_fasset
-                        SET isprint = 'Y'
-                        WHERE entity_cd = @entity_cd 
-                        AND reg_id = @reg_id;
-                        
-                        SELECT * 
-                        FROM mgr.QrData 
-                        WHERE entity_cd = @entity_cd 
-                        AND reg_id = @reg_id;
-                    `);
-
-                return result.recordset[0];
-            })
-        );
-
-        return results;
+        await transaction.commit();
+        return {
+            success: true,
+            message: "All records inserted successfully."
+        };
     } catch (error) {
         console.error("Error updating data", error);
         throw error;  // Rethrow the error to be handled in the controller
     }
-};
+}
