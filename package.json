@@ -12,6 +12,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
+    "moment-timezone": "^0.5.46",
     "mssql": "^11.0.1",
     "openapi-types": "7.0.0",
     "qrcode": "^1.5.4",

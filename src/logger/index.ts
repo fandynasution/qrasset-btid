@@ -1,5 +1,6 @@
 import path from 'path';
 import winston from 'winston';
+import moment from 'moment-timezone';
 
 const logsDirectory = path.join(__dirname, '..', '..', 'logs');
 const errorLogPath = path.join(logsDirectory, 'error.log');
@@ -9,7 +10,9 @@ const combinedLogPath = path.join(logsDirectory, 'combined.log');
 const logger = winston.createLogger({
     level: 'info', // Default log level
     format: winston.format.combine(
-        winston.format.timestamp(), // Add timestamps to logs
+        winston.format.timestamp({
+            format: () => moment().tz('Asia/Jakarta').format('YYYY-MM-DD HH:mm:ss'), // Format in UTC+7
+        }),
         winston.format.printf(({ timestamp, level, message }) => {
             return `${timestamp} [${level.toUpperCase()}]: ${message}`;
         }) // Custom log message format
