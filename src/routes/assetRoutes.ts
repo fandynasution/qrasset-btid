@@ -64,8 +64,8 @@ router.post("/datawhere", DataWhere);
  * @swagger
  * /api/datawhere:
  *   post:
- *     summary: Select Qr Asset with QR
- *     description: Run this URL to View all Data that has a QR Code
+ *     summary: Select Qr Asset with specified parameter
+ *     description: Run this URL to View Qr Asset with specified parameter
  *     tags: [For QR Code]
  *     requestBody:
  *       required: true
@@ -91,10 +91,10 @@ router.post("/datawhere", DataWhere);
 router.put('/update-print', UpdateDataPrint);
 /**
  * @swagger
- * /api/update:
- *   post:
- *     summary: Select Qr Asset with QR
- *     description: Run this URL to View all Data that has a QR Code
+ * /api/update-print:
+ *   put:
+ *     summary: Update Qr Asset after print
+ *     description: Run this URL to update Qr Asset after print
  *     tags: [For QR Code]
  *     requestBody:
  *       required: true
