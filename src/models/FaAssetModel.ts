@@ -68,7 +68,7 @@ export const UpdatePrint = async (dataArray: DataItem[]) => {
                     .input('reg_id', reg_id)
                     .query(`
                         UPDATE mgr.fa_fasset
-                        SET isprint = 'N'
+                        SET isprint = 'Y'
                         WHERE entity_cd = @entity_cd 
                         AND reg_id = @reg_id;
                         
