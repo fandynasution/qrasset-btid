@@ -58,7 +58,6 @@ router.get("/datawithqr", DatawithQr);
  *         description: Error Connection to DB
  */
 
-
 router.post("/datawhere", DataWhere);
 /**
  * @swagger
@@ -72,14 +71,17 @@ router.post("/datawhere", DataWhere);
  *       content:
  *         application/json:
  *           schema:
- *             type: object
- *             properties:
- *               entity_cd:
- *                 type: string
- *                 example: "01"
- *               reg_id:
- *                 type: string
- *                 example: "001/LND/BTID/III/17"
+ *             type: array
+ *             items:
+ *               type: object
+ *               properties:
+ *                 entity_cd:
+ *                   type: string
+ *                 reg_id:
+ *                   type: string
+ *               example:
+ *                 entity_cd: "01"
+ *                 reg_id: "006/EQP2/BTID/VI/12"
  *     responses:
  *       200:
  *         description: Successful Select Data 
@@ -88,7 +90,6 @@ router.post("/datawhere", DataWhere);
  *       500:
  *         description: Error Connection to DB
  */
-
 
 router.put('/update-print', DataUpdatePrint);
 /**
@@ -103,34 +104,17 @@ router.put('/update-print', DataUpdatePrint);
  *       content:
  *         application/json:
  *           schema:
- *             oneOf:
- *               - type: object
- *                 properties:
- *                   entity_cd:
- *                     type: string
- *                     description: Entity code
- *                     example: "01"
- *                   reg_id:
- *                     type: string
- *                     description: Registration ID
- *                     example: "001/SFW/BTID/IV/24"
- *               - type: array
- *                 items:
- *                   type: object
- *                   properties:
- *                     entity_cd:
- *                       type: string
- *                       description: Entity code
- *                       example: "01"
- *                     reg_id:
- *                       type: string
- *                       description: Registration ID
- *                       example: "001/SFW/BTID/IV/24"
- *                 example:
- *                   - entity_cd: "01"
- *                     reg_id: "001/SFW/BTID/IV/24"
- *                   - entity_cd: "01"
- *                     reg_id: "175/FF/BTID/XI/2023"
+ *             type: array
+ *             items:
+ *               type: object
+ *               properties:
+ *                 entity_cd:
+ *                   type: string
+ *                 reg_id:
+ *                   type: string
+ *               example:
+ *                 entity_cd: "01"
+ *                 reg_id: "006/EQP2/BTID/VI/12"
  *     responses:
  *       200:
  *         description: Successful Update Data
