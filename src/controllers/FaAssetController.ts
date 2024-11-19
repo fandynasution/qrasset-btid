@@ -109,7 +109,7 @@ export const DataUpdatePrint = async (req: Request, res: Response) => {
 
     try {
         const result = await UpdateDataPrint(dataArray);
-        res.status(201).json({
+        res.status(200).json({
             result
         });
     } catch (error: unknown) {
