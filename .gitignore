@@ -6,3 +6,4 @@ src/storage
 src/storage/log
 src/storage/log/qr
 .env
+logs/
