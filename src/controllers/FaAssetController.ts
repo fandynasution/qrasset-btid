@@ -152,14 +152,24 @@ export const DataUpdatePrint = async (req: Request, res: Response) => {
             logger.info(`Processing data for entity_cd: ${dataItem.entity_cd} and reg_id: ${dataItem.reg_id}`);
         });
 
+        const result = await GetDataWhere(dataArray);
+
+        if (result!) {
+            logger.warn(`No records found`);
+            return res.status(404).json({
+                success: false,
+                message: 'No records found',
+            });
+        }
+
         // Call the function to update the data in the database
-        const result = await UpdateDataPrint(dataArray);
+        const resultup = await UpdateDataPrint(dataArray);
 
         // Log the successful update to the database
         logger.info(`Success update data to Database`);
 
         res.status(200).json({
-            result
+            resultup
         });
     } catch (error: unknown) {
         if (error instanceof Error) {
