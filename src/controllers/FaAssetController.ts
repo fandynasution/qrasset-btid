@@ -154,7 +154,7 @@ export const DataUpdatePrint = async (req: Request, res: Response) => {
 
         const result = await GetDataWhere(dataArray);
 
-        if (result!) {
+        if (Array.isArray(result) && result.length === 0) {
             logger.warn(`No records found`);
             return res.status(404).json({
                 success: false,
