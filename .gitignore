@@ -3,4 +3,6 @@ dist
 docker-compose.yaml
 Dockerfile
 src/storage
+src/storage/log
+src/storage/log/qr
 .env
