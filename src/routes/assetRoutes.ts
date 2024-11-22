@@ -13,7 +13,7 @@ router.get("/generate", generateAndSaveQrCode);
  *   get:
  *     summary: Generate QR Code
  *     description: Run this URL to Generate QR Code with condition data with NULL QR Code on DB
- *     tags: [For QR Code]
+ *     tags: [For QR Code dashboard]
  *     responses:
  *       200:
  *         description: Successful Generate all Data
@@ -30,7 +30,7 @@ router.get("/datanonqr", DatanonQr);
  *   get:
  *     summary: Select Qr Asset non QR
  *     description: Run this URL to View all Data that does not yet have a QR Code
- *     tags: [For QR Code]
+ *     tags: [For QR Code dashboard]
  *     responses:
  *       200:
  *         description: Successful Select Data 
@@ -48,7 +48,7 @@ router.get("/datawithqr", DatawithQr);
  *   get:
  *     summary: Select Qr Asset with QR
  *     description: Run this URL to View all Data that has a QR Code
- *     tags: [For QR Code]
+ *     tags: [For QR Code dashboard]
  *     responses:
  *       200:
  *         description: Successful Select Data 
@@ -65,7 +65,7 @@ router.post("/datawhere", DataWhere);
  *   post:
  *     summary: Select Qr Asset with specified parameter
  *     description: Run this URL to View Qr Asset with specified parameter
- *     tags: [For QR Code]
+ *     tags: [For QR Code Power BI]
  *     requestBody:
  *       required: true
  *       content:
