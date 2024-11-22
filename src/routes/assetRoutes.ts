@@ -58,10 +58,10 @@ router.get("/datawithqr", DatawithQr);
  *         description: Error Connection to DB
  */
 
-router.post("/datawhere", DataWhere);
+router.post("/get-asset", DataWhere);
 /**
  * @swagger
- * /api/datawhere:
+ * /api/get-asset:
  *   post:
  *     summary: Select QR Asset with specified parameter
  *     description: Run this URL to View QR Asset with specified parameter
