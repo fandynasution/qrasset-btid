@@ -27,10 +27,12 @@ export const generateAndSaveQrCode = async (req: Request, res: Response) => {
         }
 
         const filteredDataWithQRCode = await Promise.all(dataQr.map(async (item: any) => {
-            const qrContent = [{
-                entity_cd: item.entity_cd,
-                reg_id: item.reg_id
-            }];
+            const qrContent = [
+                {
+                    entity_cd: item.entity_cd,
+                    reg_id: item.reg_id
+                }
+            ];
             
             const qrCodeSvg = await QRCode.toString(JSON.stringify(qrContent), { type: 'svg' });
 
