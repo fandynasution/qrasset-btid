@@ -28,7 +28,7 @@ router.get("/datanonqr", DatanonQr);
  * @swagger
  * /api/datanonqr:
  *   get:
- *     summary: Select Qr Asset non QR
+ *     summary: Select QR Asset non QR
  *     description: Run this URL to View all Data that does not yet have a QR Code
  *     tags: [For QR Code dashboard]
  *     responses:
@@ -46,7 +46,7 @@ router.get("/datawithqr", DatawithQr);
  * @swagger
  * /api/datawithqr:
  *   get:
- *     summary: Select Qr Asset with QR
+ *     summary: Select QR Asset with QR
  *     description: Run this URL to View all Data that has a QR Code
  *     tags: [For QR Code dashboard]
  *     responses:
@@ -63,8 +63,8 @@ router.post("/datawhere", DataWhere);
  * @swagger
  * /api/datawhere:
  *   post:
- *     summary: Select Qr Asset with specified parameter
- *     description: Run this URL to View Qr Asset with specified parameter
+ *     summary: Select QR Asset with specified parameter
+ *     description: Run this URL to View QR Asset with specified parameter
  *     tags: [For QR Code Power BI]
  *     requestBody:
  *       required: true
@@ -96,8 +96,8 @@ router.put('/update-print', DataUpdatePrint);
  * @swagger
  * /api/update-print:
  *   put:
- *     summary: Update Qr Asset after print (allow single object or multiple array)
- *     description: Run this URL to update multiple Qr Assets after print or a single asset.
+ *     summary: Update QR Asset after print (allow single object or multiple array)
+ *     description: Run this URL to update multiple QR Assets after print or a single asset.
   *     tags: [For QR Code dashboard]
  *     requestBody:
  *       required: true
