@@ -13,7 +13,7 @@ router.get("/generate", generateAndSaveQrCode);
  *   get:
  *     summary: Generate QR Code
  *     description: Run this URL to Generate QR Code with condition data with NULL QR Code on DB
- *     tags: [For QR Code dashboard]
+ *     tags: [For QR Code Dashboard]
  *     responses:
  *       200:
  *         description: Successful Generate all Data
@@ -30,7 +30,7 @@ router.get("/datanonqr", DatanonQr);
  *   get:
  *     summary: Select QR Asset non QR
  *     description: Run this URL to View all Data that does not yet have a QR Code
- *     tags: [For QR Code dashboard]
+ *     tags: [For QR Code Dashboard]
  *     responses:
  *       200:
  *         description: Successful Select Data 
@@ -48,7 +48,7 @@ router.get("/datawithqr", DatawithQr);
  *   get:
  *     summary: Select QR Asset with QR
  *     description: Run this URL to View all Data that has a QR Code
- *     tags: [For QR Code dashboard]
+ *     tags: [For QR Code Dashboard]
  *     responses:
  *       200:
  *         description: Successful Select Data 
@@ -98,7 +98,7 @@ router.put('/update-print', DataUpdatePrint);
  *   put:
  *     summary: Update QR Asset after print (allow single object or multiple array)
  *     description: Run this URL to update multiple QR Assets after print or a single asset.
-  *     tags: [For QR Code dashboard]
+  *     tags: [For QR Code Dashboard]
  *     requestBody:
  *       required: true
  *       content:
