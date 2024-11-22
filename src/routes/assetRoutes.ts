@@ -98,7 +98,7 @@ router.put('/update-print', DataUpdatePrint);
  *   put:
  *     summary: Update Qr Asset after print (allow single object or multiple array)
  *     description: Run this URL to update multiple Qr Assets after print or a single asset.
- *     tags: [For QR Code]
+  *     tags: [For QR Code dashboard]
  *     requestBody:
  *       required: true
  *       content:
