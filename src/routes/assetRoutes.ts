@@ -65,7 +65,7 @@ router.post("/get-asset", DataWhere);
  *   post:
  *     summary: Select QR Asset with specified parameter
  *     description: Run this URL to View QR Asset with specified parameter
- *     tags: [For QR Code Power BI]
+ *     tags: [For QR Code Power Apps]
  *     requestBody:
  *       required: true
  *       content:
