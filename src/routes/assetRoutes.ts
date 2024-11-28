@@ -124,5 +124,4 @@ router.put('/update-print', DataUpdatePrint);
  *         description: Error Connection to DB
  */
 
-
 export default router;

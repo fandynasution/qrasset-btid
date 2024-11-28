@@ -99,3 +99,30 @@ export const UpdateDataPrint = async (data: DataItem[]) => {
         throw error;  // Rethrow the error to be handled in the controller
     }
 }
+
+export const DataQRSaving = async (data: DataItem[]) => {
+    if (data.length === 0) {
+        return { message: "No records to Update." };
+    }
+
+    let pool;
+    let transaction;
+
+    try {
+        const pool = await poolPromise;
+        transaction = pool.transaction();
+        await transaction.begin();
+
+        for (const entry of data) {
+            
+        }
+        
+        return {
+            success: true,
+            message: "All records inserted successfully."
+        };
+    } catch (error) {
+        console.error("Error Inserting data", error);
+        throw error;  // Rethrow the error to be handled in the controller
+    }
+}
