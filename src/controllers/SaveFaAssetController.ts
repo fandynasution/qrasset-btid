@@ -107,10 +107,10 @@ export const UpdateAsset = async (req: Request, res: Response) => {
                     const ftpDetails = await getFtpDetails();
 
                     await ftpClient.access({
-                        host: ftpDetails.FTPServer, // Ganti dengan host FTP Anda
-                        port: ftpDetails.FTPPort,
-                        user: ftpDetails.FTPUser,        // Username FTP
-                        password: ftpDetails.FTPPassword,// Password FTP
+                        host: 'uat.ifca.co.id', // Ganti dengan host FTP Anda
+                        port: 2111,
+                        user: 'btid',        // Username FTP
+                        password: '1fc41fc4',// Password FTP
                         secure: false,           // Atur ke true jika menggunakan FTPS
                     });
 
