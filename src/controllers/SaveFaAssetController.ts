@@ -107,10 +107,10 @@ export const UpdateAsset = async (req: Request, res: Response) => {
                     const ftpDetails = await getFtpDetails();
 
                     await ftpClient.access({
-                        host: 'uat.ifca.co.id', // Ganti dengan host FTP Anda
-                        port: 2111,
-                        user: 'btid',        // Username FTP
-                        password: '1fc41fc4',// Password FTP
+                        host: '34.101.201.127', // Ganti dengan host FTP Anda
+                        port: 21,
+                        user: 'ifca_btid',        // Username FTP
+                        password: '@Serangan1212',// Password FTP
                         secure: false,           // Atur ke true jika menggunakan FTPS
                     });
 
@@ -124,7 +124,7 @@ export const UpdateAsset = async (req: Request, res: Response) => {
                     logger.info(`File uploaded to FTP: ${remoteFilePath}`);
 
                     // Simpan URL FTP
-                    ftpUrl = `${ftpDetails.URLPDF}${remoteFolderPath}${tempFileName}`;
+                    ftpUrl = `https://ifcaftp.kurakurabali.com${remoteFolderPath}${tempFileName}`;
 
                     // Hapus file sementara setelah diunggah
                     fs.unlinkSync(tempFilePath);
