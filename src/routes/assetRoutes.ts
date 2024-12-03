@@ -1,6 +1,7 @@
 import express from 'express';
 import { generateAndSaveQrCode } from '../controllers/QrCodeController';
 import { DatanonQr, DatawithQr, DataWhere, DataUpdatePrint } from '../controllers/FaAssetController';
+import { UpdateAsset } from '../controllers/SaveFaAssetController';
 
 const router = express.Router();
 
@@ -123,5 +124,8 @@ router.put('/update-print', DataUpdatePrint);
  *       500:
  *         description: Error Connection to DB
  */
+
+router.get('/update-asset', UpdateAsset);
+
 
 export default router;

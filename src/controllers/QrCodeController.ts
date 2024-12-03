@@ -39,8 +39,7 @@ export const generateAndSaveQrCode = async (req: Request, res: Response) => {
             format.printf(({ timestamp, level, message }) => `${timestamp} [${level.toUpperCase()}]: ${message}`)
         ),
         transports: [
-            new transports.Console(), // Tampilkan di console
-            new transports.File({ filename: path.join(logDir, getLogFileName()) }) // Simpan ke file log harian
+            new transports.File({ filename: path.join(logDir, getLogFileName()) }), // Simpan ke file log harian
         ]
     });
 

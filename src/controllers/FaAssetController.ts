@@ -9,7 +9,7 @@ import { console } from "inspector";
 import { createLogger, format, transports } from "winston";
 
 // Ensure the target directory exists
-const uploadDir = path.join(__dirname, 'src', 'storage', 'assetpicture');
+const uploadDir = path.join(__dirname, '../../storage/assetpicture');
 if (!fs.existsSync(uploadDir)) {
     fs.mkdirSync(uploadDir, { recursive: true }); // Create the directory if it doesn't exist
 }
@@ -30,7 +30,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // Folder log
-const logDir = path.join(__dirname, '../storage/log');
+const logDir = path.join(__dirname, '../../storage/log');
 
 // Pastikan folder log ada
 if (!fs.existsSync(logDir)) {
@@ -55,8 +55,7 @@ export const DatanonQr = async (req: Request, res: Response) => {
             format.printf(({ timestamp, level, message }) => `${timestamp} [${level.toUpperCase()}]: ${message}`)
         ),
         transports: [
-            new transports.Console(), // Tampilkan di console
-            new transports.File({ filename: path.join(logDir, getLogFileName()) }) // Simpan ke file log harian
+            new transports.File({ filename: path.join(logDir, getLogFileName()) }), // Simpan ke file log harian
         ]
     });
     try {
@@ -97,7 +96,6 @@ export const DatawithQr = async (req: Request, res: Response) => {
             format.printf(({ timestamp, level, message }) => `${timestamp} [${level.toUpperCase()}]: ${message}`)
         ),
         transports: [
-            new transports.Console(), // Tampilkan di console
             new transports.File({ filename: path.join(logDir, getLogFileName()) }) // Simpan ke file log harian
         ]
     });
@@ -139,12 +137,12 @@ export const DataWhere = async (req: Request, res: Response) => {
             format.printf(({ timestamp, level, message }) => `${timestamp} [${level.toUpperCase()}]: ${message}`)
         ),
         transports: [
-            new transports.Console(), // Tampilkan di console
             new transports.File({ filename: path.join(logDir, getLogFileName()) }) // Simpan ke file log harian
         ]
     });
 
     const dataWhereD = req.body;
+    console.log(dataWhereD);
 
     const dataArray: DataItem[] = Array.isArray(dataWhereD) ? dataWhereD : [dataWhereD];
 
@@ -210,7 +208,6 @@ export const DataUpdatePrint = async (req: Request, res: Response) => {
             format.printf(({ timestamp, level, message }) => `${timestamp} [${level.toUpperCase()}]: ${message}`)
         ),
         transports: [
-            new transports.Console(), // Tampilkan di console
             new transports.File({ filename: path.join(logDir, getLogFileName()) }) // Simpan ke file log harian
         ]
     });

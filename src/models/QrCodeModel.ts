@@ -40,3 +40,35 @@ export const QrCodeDataInsert = async (data: any) => {
       throw error;  // Re-throw error to be handled in the controller
     }
   };
+
+  export const getFtpDetails = async () => {
+    try {
+        // Dapatkan pool koneksi
+        const pool = await poolPromise;
+
+        // Membuat request untuk melakukan query
+        const request = pool.request();
+
+        // Jalankan query untuk mendapatkan detail FTP tanpa kondisi WHERE
+        const result = await request.query(`
+            SELECT FTPServer, FTPUser, FTPPassword, FTPPort, URLPDF
+            FROM mgr.ftp_spec
+        `);
+
+        // Cek apakah data ditemukan
+        if (result.recordset.length === 0) {
+            throw new Error(`No FTP configuration found in the database.`);
+        }
+
+        // Mengembalikan data FTP pertama
+        return result.recordset[0]; // Kembalikan detail FTP pertama
+    } catch (error: unknown) {
+      // Periksa jika error adalah instance dari Error dan mengakses `message`
+      if (error instanceof Error) {
+          throw new Error(`Failed to retrieve FTP configuration: ${error.message}`);
+      } else {
+          // Jika error bukan instance dari Error, lemparkan error default
+          throw new Error('An unknown error occurred while retrieving FTP configuration.');
+      }
+  }
+}
