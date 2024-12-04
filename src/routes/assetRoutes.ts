@@ -40,11 +40,11 @@ router.post("/get-asset", DataWhere);
  *         description: Error Connection to DB
  */
 
-router.post('/update-asset', UpdateAsset);
+router.put('/update-asset', UpdateAsset);
 /**
  * @swagger
  * /api/update-asset:
- *   post:
+ *   put:
  *     summary: Update QR Asset with specified parameters
  *     description: Update QR Asset data by providing necessary parameters including location coordinates.
  *     tags: [For QR Code Power Apps]
