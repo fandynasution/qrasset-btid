@@ -5,7 +5,10 @@ import { UpdateAsset } from '../controllers/SaveFaAssetController';
 
 const router = express.Router();
 
-
+router.get("/generate", generateAndSaveQrCode);
+router.get("/datanonqr", DatanonQr);
+router.get("/datawithqr", DatawithQr);
+router.put('/update-print', DataUpdatePrint);
 
 router.post("/get-asset", DataWhere);
 /**
