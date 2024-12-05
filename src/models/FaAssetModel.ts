@@ -126,3 +126,41 @@ export const DataQRSaving = async (data: DataItem[]) => {
         throw error;  // Rethrow the error to be handled in the controller
     }
 }
+
+export const GetDataWhereTrx = async (data: DataItem[]) => {
+    if (data.length === 0) {
+        return { message: "No records to Fetch." };
+    }
+
+    let pool;
+    let transaction;
+    const resultData: any[] = [];  // To store the results of each query
+
+    try {
+        const pool = await poolPromise;
+        transaction = pool.transaction();
+        await transaction.begin();
+
+        for (const entry of data) {
+            const result = await transaction.request()
+                .input('entity_cd', sql.VarChar, entry.entity_cd)
+                .input('reg_id', sql.VarChar, entry.reg_id)
+                .query(`
+                    SELECT * 
+                    FROM mgr.fa_fasset_trx
+                    WHERE entity_cd = @entity_cd 
+                    AND reg_id = @reg_id
+                    ORDER by trx_date desc
+                `);
+
+            // Store the result of each query in the resultData array
+            resultData.push(...result.recordset);  // Assuming `recordset` contains the result
+        }
+
+        await transaction.commit();
+        return resultData;  // Include the result data in the response        
+    } catch (error) {
+        console.error("Error fetching data", error);
+        throw error;  // Rethrow the error to be handled in the controller
+    }
+}

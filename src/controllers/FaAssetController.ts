@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { GetDatanonQr, GetDataWhere, GetDataWithQr, UpdateDataPrint, DataQRSaving } from '../models/FaAssetModel';
+import { GetDatanonQr, GetDataWhere, GetDataWithQr, UpdateDataPrint, DataQRSaving, GetDataWhereTrx } from '../models/FaAssetModel';
 import { DataItem } from '../types/QrCodeTypes';
 import fs from 'fs';
 import path from 'path';
@@ -272,6 +272,77 @@ export const DataUpdatePrint = async (req: Request, res: Response) => {
             res.status(500).json({
                 success: false,
                 message: "Failed to update Data Print",
+                error: "An unknown error occurred"
+            });
+        }
+    }
+}
+
+export const DataWhereTrx = async (req: Request, res: Response) => {
+    // Buat logger
+    const logger = createLogger({
+        level: 'info',
+        format: format.combine(
+            format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
+            format.printf(({ timestamp, level, message }) => `${timestamp} [${level.toUpperCase()}]: ${message}`)
+        ),
+        transports: [
+            new transports.File({ filename: path.join(logDir, getLogFileName()) }) // Simpan ke file log harian
+        ]
+    });
+
+    const dataWhereD = req.body;
+    console.log(dataWhereD);
+
+    const dataArray: DataItem[] = Array.isArray(dataWhereD) ? dataWhereD : [dataWhereD];
+
+    // Validate that each entry has the required fields
+    const hasRequiredFields = (detail: DataItem) =>
+        detail.entity_cd && detail.reg_id;
+
+    // Check for required fields in each entry
+    if (!dataArray.every(hasRequiredFields)) {
+        const errorMessage = "entity_cd and reg_id are required";
+        logger.error(errorMessage); // Log error
+            
+        return res.status(400).json({
+            success: false,
+            message: errorMessage,
+        });
+    }
+    try {
+        // Log each entry
+        dataArray.forEach((dataItem) => {
+            logger.info(`Processing data for entity_cd: ${dataItem.entity_cd} and reg_id: ${dataItem.reg_id}`);
+        });
+
+        // Call the function to update the data in the database
+        const result = await GetDataWhereTrx(dataArray);
+
+        // Log the successful update to the database
+        logger.info(`Success get Data from Database`);
+
+        res.status(200).json({
+            success: true,
+            message: "Success",
+            result,
+        });
+    } catch (error: unknown) {
+        if (error instanceof Error) {
+            logger.error(`Failed to Fetch Data Print: ${error instanceof Error ? error.message : error}`);
+        
+            res.status(500).json({
+                success: false,
+                message: "Failed to Fetch Data Print",
+                error: error.message,
+                stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
+            });
+        } else {
+            logger.error(`Failed to Fetch Data Print: ${error instanceof Error ? error.message : error}`);
+        
+            res.status(500).json({
+                success: false,
+                message: "Failed to Fetch Data Print",
                 error: "An unknown error occurred"
             });
         }

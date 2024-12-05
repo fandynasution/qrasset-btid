@@ -1,6 +1,6 @@
 import express from 'express';
 import { generateAndSaveQrCode } from '../controllers/QrCodeController';
-import { DatanonQr, DatawithQr, DataWhere, DataUpdatePrint } from '../controllers/FaAssetController';
+import { DatanonQr, DatawithQr, DataWhere, DataUpdatePrint, DataWhereTrx } from '../controllers/FaAssetController';
 import { UpdateAsset } from '../controllers/SaveFaAssetController';
 
 const router = express.Router();
@@ -11,6 +11,7 @@ router.get("/datawithqr", DatawithQr);
 router.put('/update-print', DataUpdatePrint);
 
 router.post("/get-asset", DataWhere);
+router.post("/get-asset-trx", DataWhereTrx);
 /**
  * @swagger
  * /api/get-asset:
