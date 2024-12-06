@@ -94,8 +94,8 @@ router.put('/update-asset', UpdateAsset);
  *     responses:
  *       200:
  *         description: Successful update of asset data
- *       404:
- *         description: No data found in the database
+ *       400:
+ *         description: Bad Request, Invalid Parameter
  *       500:
  *         description: Error connecting to the database
  */
