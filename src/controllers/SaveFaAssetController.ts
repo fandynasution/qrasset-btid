@@ -133,12 +133,13 @@ export const UpdateAsset = async (req: Request, res: Response) => {
                     ftpClient.close();
                 } catch (ftpError) {
                     logger.error(`FTP upload failed for entity_cd: ${entity_cd}, reg_id: ${reg_id}. Error: ${ftpError}`);
+                    ftpUrl = null; // Tetapkan null jika terjadi kesalahan
                 }
             }
 
             // Data untuk diperbarui
             const fassetUpdates: { [key: string]: string | null } = {
-                source_file_attachment: ftpUrl || null,
+                source_file_attachment: ftpUrl, // Tetap null jika FTP gagal
                 status_review: status_review || null,
                 location_map: location_map || null,
             };
