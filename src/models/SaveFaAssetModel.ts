@@ -96,8 +96,8 @@ export const syncToFassetTrx = async (
             // Optimasi: Gunakan nilai existingData jika updates bernilai null
             const newLocationMap = updates.new_location_map ?? existingData.new_location_map;
             const newStatusReview = updates.new_status_review ?? existingData.new_status_review;
-            const note = updates.note ?? existingData.note;
-            const auditStatus = updates.audit_status ?? existingData.audit_status;
+            const note = updates.note ?? existingData.note ?? 'No Note';
+            const auditStatus = updates.audit_status ?? existingData.audit_status ?? 'N';
 
             // Cek apakah data berbeda
             if (
@@ -122,7 +122,7 @@ export const syncToFassetTrx = async (
             }
 
             // Update jika ada perbedaan untuk note atau audit_status
-            if (note !== null && existingData.note !== note) {
+            if (existingData.note !== note) {
                 await pool.request()
                     .input('entity_cd', sql.VarChar, entity_cd)
                     .input('reg_id', sql.VarChar, reg_id)
@@ -141,7 +141,7 @@ export const syncToFassetTrx = async (
                     `);
             }
 
-            if (auditStatus !== null && existingData.audit_status !== auditStatus) {
+            if (existingData.audit_status !== auditStatus) {
                 await pool.request()
                     .input('entity_cd', sql.VarChar, entity_cd)
                     .input('reg_id', sql.VarChar, reg_id)
