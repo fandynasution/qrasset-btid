@@ -63,11 +63,40 @@ export const UpdateAsset = async (req: Request, res: Response) => {
     const dataArray = Array.isArray(dataWhereD) ? dataWhereD : [dataWhereD];
 
     // Validate that each entry has the required fields
-    const hasRequiredFields = (detail: { entity_cd: string; reg_id: string, location_map: string, source_file_attachment: string, status_review: string }) =>
-        detail.entity_cd && detail.reg_id;
+    const validateFields = (details: { entity_cd: string; reg_id: string; location_map: string; source_file_attachment: string; status_review: string }) => {
+        const missingFields = [];
+        if (!details.entity_cd) missingFields.push("entity_cd");
+        if (!details.reg_id) missingFields.push("reg_id");
+        if (!details.location_map) missingFields.push("location_map");
+        if (!details.source_file_attachment) missingFields.push("source_file_attachment");
+        if (!details.status_review) missingFields.push("status_review");
+        return missingFields;
+    };
 
-    if (!dataArray.every(hasRequiredFields)) {
-        const errorMessage = "entity_cd and / or reg_id and / or location_map and / or source_file_attachment and / or status_review are required";
+    // Check all entries in dataArray
+    const invalidEntries = dataArray.map((detail, index) => {
+        const missingFields = validateFields(detail);
+        return { index, missingFields };
+    }).filter(entry => entry.missingFields.length > 0);
+
+    if (invalidEntries.length > 0) {
+        const errorDetails = invalidEntries
+            .map(entry => {
+                const missingFields = entry.missingFields;
+                if (missingFields.length === 1) {
+                    return `${missingFields[0]} is required`;
+                } else if (missingFields.length === 2) {
+                    return `${missingFields.join(" & ")} are required`;
+                } else {
+                    const allExceptLast = missingFields.slice(0, -1).join(", ");
+                    const lastField = missingFields[missingFields.length - 1];
+                    return `${allExceptLast} & ${lastField} are required`;
+                }
+            })
+            .join("; ");
+
+        const errorMessage = `Update failed. ${errorDetails}`;
+        
         logger.error(errorMessage);
 
         return res.status(400).json({
@@ -108,7 +137,7 @@ export const UpdateAsset = async (req: Request, res: Response) => {
 
                     await ftpClient.access({
                         host: ftpDetails.FTPServer, // Ganti dengan host FTP Anda
-                        port: 21,
+                        port: 2111,
                         user: ftpDetails.FTPUser,       // Username FTP
                         password: ftpDetails.FTPPassword,// Password FTP
                         secure: false,           // Atur ke true jika menggunakan FTPS
