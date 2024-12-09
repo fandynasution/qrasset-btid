@@ -63,11 +63,11 @@ export const UpdateAsset = async (req: Request, res: Response) => {
     const dataArray = Array.isArray(dataWhereD) ? dataWhereD : [dataWhereD];
 
     // Validate that each entry has the required fields
-    const hasRequiredFields = (detail: { entity_cd: string; reg_id: string }) =>
+    const hasRequiredFields = (detail: { entity_cd: string; reg_id: string, location_map: string, source_file_attachment: string, status_review: string }) =>
         detail.entity_cd && detail.reg_id;
 
     if (!dataArray.every(hasRequiredFields)) {
-        const errorMessage = "entity_cd and reg_id are required";
+        const errorMessage = "entity_cd and / or reg_id and / or location_map and / or source_file_attachment and / or status_review are required";
         logger.error(errorMessage);
 
         return res.status(400).json({
