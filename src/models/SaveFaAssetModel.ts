@@ -64,7 +64,7 @@ export const syncToFassetTrx = async (
     try {
         const pool = await poolPromise;
 
-        // Query untuk cek apakah data sudah ada, urutkan berdasarkan trx_date terbaru
+        // Query untuk cek apakah data sudah ada
         const existingDataResult = await pool.request()
             .input('entity_cd', sql.VarChar, entity_cd)
             .input('reg_id', sql.VarChar, reg_id)
@@ -74,114 +74,59 @@ export const syncToFassetTrx = async (
                 WHERE entity_cd = @entity_cd AND reg_id = @reg_id
                 ORDER BY trx_date DESC
             `);
+
         const existingData = existingDataResult.recordset[0];
-        // console.log(existingData.new_location_map);
+
         if (existingDataResult.recordset.length === 0) {
+            // Jika data belum ada, lakukan insert langsung
             await pool.request()
                 .input('entity_cd', sql.VarChar, entity_cd)
                 .input('reg_id', sql.VarChar, reg_id)
-                .input('new_location_map', sql.VarChar, updates.new_location_map)
-                .input('new_status_review', sql.VarChar, updates.new_status_review)
-                .input('note', sql.VarChar, updates.note)
-                .input('audit_status', sql.VarChar, updates.audit_status)
+                .input('new_location_map', sql.VarChar, updates.new_location_map || null)
+                .input('new_status_review', sql.VarChar, updates.new_status_review || null)
+                .input('note', sql.VarChar, updates.note || null)
+                .input('audit_status', sql.VarChar, updates.audit_status || null)
                 .query(`
                     INSERT INTO mgr.fa_fasset_trx 
                     (entity_cd, reg_id, trx_date, old_location_map, new_location_map, old_status_review, new_status_review, note, audit_status, audit_user, audit_date)
                     VALUES 
-                    (@entity_cd, @reg_id, GETDATE(), null, @new_location_map, null, @new_status_review, @note, @audit_status, 'WEBAPI', getdate())
+                    (@entity_cd, @reg_id, GETDATE(), null, @new_location_map, null, @new_status_review, @note, @audit_status, 'WEBAPI', GETDATE())
                 `);
         } else {
-            const existingData = existingDataResult.recordset[0];
-            if (existingData.new_location_map !== updates.new_location_map && 
-                existingData.new_status_review !== updates.new_status_review
+            // Optimasi: Gunakan nilai existingData jika updates bernilai null
+            const newLocationMap = updates.new_location_map ?? existingData.new_location_map;
+            const newStatusReview = updates.new_status_review ?? existingData.new_status_review;
+            const note = updates.note ?? existingData.note;
+            const auditStatus = updates.audit_status ?? existingData.audit_status;
+
+            // Cek apakah data berbeda
+            if (
+                existingData.new_location_map !== newLocationMap ||
+                existingData.new_status_review !== newStatusReview
             ) {
-                const existingDataResult1 = await pool.request()
-                    .input('entity_cd', sql.VarChar, entity_cd)
-                    .input('reg_id', sql.VarChar, reg_id)
-                    .query(`
-                        SELECT TOP 1 new_location_map, old_status_review, old_location_map, new_status_review
-                        FROM mgr.fa_fasset_trx
-                        WHERE entity_cd = @entity_cd AND reg_id = @reg_id
-                        ORDER BY trx_date DESC
-                    `);
-                const GetData1 = existingDataResult1.recordset[0];
                 await pool.request()
                     .input('entity_cd', sql.VarChar, entity_cd)
                     .input('reg_id', sql.VarChar, reg_id)
-                    .input('new_location_map', sql.VarChar, updates.new_location_map)
-                    .input('old_location_map', sql.VarChar, GetData1.new_location_map)
-                    .input('new_status_review', sql.VarChar, updates.new_status_review)
-                    .input('old_status_review', sql.VarChar, GetData1.new_status_review)
-                    .input('note', sql.VarChar, updates.note)
-                    .input('audit_status', sql.VarChar, updates.audit_status)
+                    .input('new_location_map', sql.VarChar, newLocationMap)
+                    .input('old_location_map', sql.VarChar, existingData.new_location_map)
+                    .input('new_status_review', sql.VarChar, newStatusReview)
+                    .input('old_status_review', sql.VarChar, existingData.new_status_review)
+                    .input('note', sql.VarChar, note)
+                    .input('audit_status', sql.VarChar, auditStatus)
                     .query(`
                         INSERT INTO mgr.fa_fasset_trx 
                         (entity_cd, reg_id, trx_date, old_location_map, new_location_map, old_status_review, new_status_review, note, audit_status, audit_user, audit_date)
                         VALUES 
-                        (@entity_cd, @reg_id, GETDATE(), @old_location_map, @new_location_map, @old_status_review, @new_status_review, @note, @audit_status, 'WEBAPI', getdate())
-                    `);
-            } else if (existingData.new_status_review !== updates.new_status_review
-            ) {
-                const existingDataResult2 = await pool.request()
-                    .input('entity_cd', sql.VarChar, entity_cd)
-                    .input('reg_id', sql.VarChar, reg_id)
-                    .query(`
-                        SELECT TOP 1 new_location_map, old_status_review, old_location_map, new_status_review
-                        FROM mgr.fa_fasset_trx
-                        WHERE entity_cd = @entity_cd AND reg_id = @reg_id
-                        ORDER BY trx_date DESC
-                    `);
-                const GetData2 = existingDataResult2.recordset[0];
-                await pool.request()
-                    .input('entity_cd', sql.VarChar, entity_cd)
-                    .input('reg_id', sql.VarChar, reg_id)
-                    .input('new_location_map', sql.VarChar, GetData2.new_location_map)
-                    .input('old_location_map', sql.VarChar, GetData2.old_location_map)
-                    .input('new_status_review', sql.VarChar, updates.new_status_review)
-                    .input('old_status_review', sql.VarChar, GetData2.new_status_review)
-                    .input('note', sql.VarChar, updates.note)
-                    .input('audit_status', sql.VarChar, updates.audit_status)
-                    .query(`
-                        INSERT INTO mgr.fa_fasset_trx 
-                        (entity_cd, reg_id, trx_date, old_location_map, new_location_map, old_status_review, new_status_review, note, audit_status, audit_user, audit_date)
-                        VALUES 
-                        (@entity_cd, @reg_id, GETDATE(), @old_location_map, @new_location_map, @old_status_review, @new_status_review, @note, @audit_status, 'WEBAPI', getdate())
-                    `);
-            } else if (existingData.new_location_map !== updates.new_location_map
-            ) {
-                const existingDataResult3 = await pool.request()
-                    .input('entity_cd', sql.VarChar, entity_cd)
-                    .input('reg_id', sql.VarChar, reg_id)
-                    .query(`
-                        SELECT TOP 1 new_location_map, old_status_review, old_location_map, new_status_review
-                        FROM mgr.fa_fasset_trx
-                        WHERE entity_cd = @entity_cd AND reg_id = @reg_id
-                        ORDER BY trx_date DESC
-                    `);
-                const GetData3 = existingDataResult3.recordset[0];
-                await pool.request()
-                    .input('entity_cd', sql.VarChar, entity_cd)
-                    .input('reg_id', sql.VarChar, reg_id)
-                    .input('new_location_map', sql.VarChar, updates.new_location_map)
-                    .input('old_location_map', sql.VarChar, GetData3.new_location_map)
-                    .input('new_status_review', sql.VarChar, GetData3.new_status_review)
-                    .input('old_status_review', sql.VarChar, GetData3.old_status_review)
-                    .input('note', sql.VarChar, updates.note)
-                    .input('audit_status', sql.VarChar, updates.audit_status)
-                    .query(`
-                        INSERT INTO mgr.fa_fasset_trx 
-                        (entity_cd, reg_id, trx_date, old_location_map, new_location_map, old_status_review, new_status_review, note, audit_status, audit_user, audit_date)
-                        VALUES 
-                        (@entity_cd, @reg_id, GETDATE(), @old_location_map, @new_location_map, @old_status_review, @new_status_review, @note, @audit_status, 'WEBAPI', getdate())
+                        (@entity_cd, @reg_id, GETDATE(), @old_location_map, @new_location_map, @old_status_review, @new_status_review, @note, @audit_status, 'WEBAPI', GETDATE())
                     `);
             }
 
-            if (existingData.note !== updates.note) {
-                await pool
-                    .request()
+            // Update jika ada perbedaan untuk note atau audit_status
+            if (note !== null && existingData.note !== note) {
+                await pool.request()
                     .input('entity_cd', sql.VarChar, entity_cd)
                     .input('reg_id', sql.VarChar, reg_id)
-                    .input('note', sql.VarChar, updates.note)
+                    .input('note', sql.VarChar, note)
                     .query(`
                         UPDATE mgr.fa_fasset_trx
                         SET note = @note
@@ -195,15 +140,15 @@ export const syncToFassetTrx = async (
                         );
                     `);
             }
-            if (existingData.audit_status !== updates.audit_status) {
-                await pool
-                    .request()
+
+            if (auditStatus !== null && existingData.audit_status !== auditStatus) {
+                await pool.request()
                     .input('entity_cd', sql.VarChar, entity_cd)
                     .input('reg_id', sql.VarChar, reg_id)
-                    .input('audit_status', sql.VarChar, updates.audit_status)
+                    .input('audit_status', sql.VarChar, auditStatus)
                     .query(`
                         UPDATE mgr.fa_fasset_trx
-                        SET  audit_status = @audit_status
+                        SET audit_status = @audit_status
                         WHERE entity_cd = @entity_cd 
                         AND reg_id = @reg_id
                         AND trx_date = (
