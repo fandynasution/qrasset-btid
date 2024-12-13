@@ -1,0 +1,363 @@
+2024-12-13 02:29:19 [INFO]: Success get Data with QR from Database
+2024-12-13 02:30:12 [INFO]: Success get Data with QR from Database
+2024-12-13 04:59:08 [INFO]: Success get Data with QR from Database
+2024-12-13 05:04:06 [INFO]: Success get Data with QR from Database
+2024-12-13 05:41:50 [INFO]: Success get Data with QR from Database
+2024-12-13 05:41:53 [INFO]: Success get Data with QR from Database
+2024-12-13 05:42:10 [INFO]: Success get Data with QR from Database
+2024-12-13 05:42:13 [INFO]: Success get Data with QR from Database
+2024-12-13 05:42:26 [INFO]: Success get Data with QR from Database
+2024-12-13 05:45:29 [INFO]: Success get Data with QR from Database
+2024-12-13 05:45:33 [INFO]: Processing data for entity_cd: 01 and reg_id: 006/EQP2/BTID/VI/12
+2024-12-13 05:45:33 [INFO]: Success get Data from Database
+2024-12-13 05:45:33 [INFO]: Processing data for entity_cd: 01 and reg_id: 006/EQP2/BTID/VI/12
+2024-12-13 05:45:33 [INFO]: Success get Data from Database
+2024-12-13 05:45:46 [INFO]: Processing data for entity_cd: 01 and reg_id: 006/EQP2/BTID/VI/12
+2024-12-13 05:45:46 [INFO]: Success get Data from Database
+2024-12-13 05:45:46 [INFO]: Processing data for entity_cd: 01 and reg_id: 006/EQP2/BTID/VI/12
+2024-12-13 05:45:46 [INFO]: Success get Data from Database
+2024-12-13 05:45:47 [INFO]: Success get Data with QR from Database
+2024-12-13 05:45:51 [INFO]: Processing data for entity_cd: 01 and reg_id: 001/EQP2/BTID/I/21
+2024-12-13 05:45:51 [INFO]: Success get Data from Database
+2024-12-13 05:45:51 [INFO]: Processing data for entity_cd: 01 and reg_id: 001/EQP2/BTID/I/21
+2024-12-13 05:45:51 [INFO]: Success get Data from Database
+2024-12-13 06:00:57 [INFO]: Success get Data with QR from Database
+2024-12-13 06:01:02 [INFO]: Success get Data with QR from Database
+2024-12-13 06:01:43 [INFO]: Processing data for entity_cd: 01 and reg_id: 001/EQP2/BTID/I/21
+2024-12-13 06:01:43 [INFO]: Success get Data from Database
+2024-12-13 06:01:43 [INFO]: Processing data for entity_cd: 01 and reg_id: 001/EQP2/BTID/I/21
+2024-12-13 06:01:43 [INFO]: Success get Data from Database
+2024-12-13 06:46:07 [INFO]: Processing data for entity_cd: 01 and reg_id: 001/EQP2/BTID/I/21
+2024-12-13 06:46:07 [INFO]: Success get Data from Database
+2024-12-13 06:46:07 [INFO]: Processing data for entity_cd: 01 and reg_id: 001/EQP2/BTID/I/21
+2024-12-13 06:46:07 [INFO]: Success get Data from Database
+2024-12-13 07:03:26 [INFO]: Processing data for entity_cd: 01 and reg_id: 001/EQP2/BTID/I/21
+2024-12-13 07:03:26 [INFO]: Success get Data from Database
+2024-12-13 07:03:26 [INFO]: Processing data for entity_cd: 01 and reg_id: 001/EQP2/BTID/I/21
+2024-12-13 07:03:26 [INFO]: Success get Data from Database
+2024-12-13 07:03:27 [INFO]: Processing data for entity_cd: 01 and reg_id: 001/EQP2/BTID/I/21
+2024-12-13 07:03:27 [INFO]: Success get Data from Database
+2024-12-13 07:03:27 [INFO]: Processing data for entity_cd: 01 and reg_id: 001/EQP2/BTID/I/21
+2024-12-13 07:03:27 [INFO]: Success get Data from Database
+2024-12-13 07:03:28 [INFO]: Success get Data with QR from Database
+2024-12-13 07:11:14 [INFO]: Success get Data with QR from Database
+2024-12-13 07:25:26 [INFO]: Processing data for entity_cd: 01 and reg_id: 001/EQP2/BTID/I/21
+2024-12-13 07:25:27 [INFO]: Success get Data from Database
+2024-12-13 07:25:28 [INFO]: Processing data for entity_cd: 01 and reg_id: 001/EQP2/BTID/I/21
+2024-12-13 07:25:28 [INFO]: Success get Data from Database
+2024-12-13 07:44:59 [INFO]: Success get Data with QR from Database
+2024-12-13 07:56:42 [INFO]: Success get Data with QR from Database
+2024-12-13 07:57:10 [INFO]: Success get Data with QR from Database
+2024-12-13 07:57:12 [INFO]: Success get Data with QR from Database
+2024-12-13 07:57:21 [INFO]: Processing data for entity_cd: 01 and reg_id: 001/EQP2/BTID/I/21
+2024-12-13 07:57:21 [INFO]: Success get Data from Database
+2024-12-13 07:57:22 [INFO]: Processing data for entity_cd: 01 and reg_id: 001/EQP2/BTID/I/21
+2024-12-13 07:57:22 [INFO]: Success get Data from Database
+2024-12-13 07:57:25 [INFO]: Processing data for entity_cd: 01 and reg_id: 001/EQP2/BTID/I/21
+2024-12-13 07:57:25 [INFO]: Success get Data from Database
+2024-12-13 07:57:25 [INFO]: Processing data for entity_cd: 01 and reg_id: 001/EQP2/BTID/I/21
+2024-12-13 07:57:25 [INFO]: Success get Data from Database
+2024-12-13 07:58:26 [INFO]: Processing data for entity_cd: 01 and reg_id: 001/EQP2/BTID/I/21
+2024-12-13 07:58:26 [INFO]: Success get Data from Database
+2024-12-13 07:58:26 [INFO]: Processing data for entity_cd: 01 and reg_id: 001/EQP2/BTID/I/21
+2024-12-13 07:58:26 [INFO]: Success get Data from Database
+2024-12-13 08:42:46 [INFO]: Processing data for entity_cd: 01 and reg_id: 001/EQP2/BTID/I/21
+2024-12-13 08:42:46 [INFO]: Success get Data from Database
+2024-12-13 08:42:46 [INFO]: Processing data for entity_cd: 01 and reg_id: 001/EQP2/BTID/I/21
+2024-12-13 08:42:46 [INFO]: Success get Data from Database
+2024-12-13 08:42:57 [ERROR]: No data with QR found on Database
+2024-12-13 08:44:40 [ERROR]: No data with QR found on Database
+2024-12-13 08:44:43 [INFO]: Success get Data non QR from Database
+2024-12-13 08:45:15 [ERROR]: No data with QR found on Database
+2024-12-13 08:45:41 [INFO]: Success get Data non QR from Database
+2024-12-13 08:46:08 [INFO]: No data non QR found on Database
+2024-12-13 08:46:12 [INFO]: Success get Data with QR from Database
+2024-12-13 08:46:21 [INFO]: Processing data for entity_cd: 01 and reg_id: 002/BD/BTID/X/24
+2024-12-13 08:46:21 [INFO]: Success get Data from Database
+2024-12-13 08:46:21 [INFO]: Processing data for entity_cd: 01 and reg_id: 002/BD/BTID/X/24
+2024-12-13 08:46:21 [INFO]: Success get Data from Database
+2024-12-13 08:46:25 [INFO]: Processing data for entity_cd: 01 and reg_id: 002/BD/BTID/X/24
+2024-12-13 08:46:25 [INFO]: Success get Data from Database
+2024-12-13 08:46:27 [INFO]: Success get Data with QR from Database
+2024-12-13 08:46:34 [INFO]: Processing data for entity_cd: 01 and reg_id: 002/BD/BTID/X/24
+2024-12-13 08:46:34 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-13 08:46:34 [INFO]: Success get Data from Database
+2024-12-13 08:46:36 [INFO]: Processing data for entity_cd: 01 and reg_id: 002/BD/BTID/X/24
+2024-12-13 08:46:36 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-13 08:46:36 [INFO]: Success update data to Database
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 002/BD/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 002/VHC1/BTID/IX/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 40/EQP2/BTID/VIII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 002/EKEK/BTID/VII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/EKEK/BTID/VII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 004/EKEK/BTID/VII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 005/EKEK/BTID/VII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 006/EKEK/BTID/VII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 007/EKEK/BTID/VII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 008/EKEK/BTID/VII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 009/EKEK/BTID/VII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 010/EKEK/BTID/VII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 011/EKEK/BTID/VII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 012/EKEK/BTID/VII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 062/EQP/BTID/VII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 064/EQP/BTID/VII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 068/EQP/BTID/VIII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 069/EQP/BTID/VIII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 070/EQP/BTID/VIII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 071/EQP/BTID/VIII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 072/EQP/BTID/VIII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 073/EQP/BTID/VIII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 074/EQP/BTID/VIII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 075/EQP/BTID/VIII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 076/EQP/BTID/VIII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 077/EQP/BTID/VIII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 078/EQP/BTID/VIII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 079/EQP/BTID/IX/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 080/EQP/BTID/IX/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 081/EQP/BTID/IX/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 082/EQP/BTID/IX/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 083/EQP/BTID/IX/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 084/EQP/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 085/EQP/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 086/EQP/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 087/EQP/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 088/EQP/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 028/COM/BTID/VII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 030/COM/BTID/VIII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 031/COM/BTID/VIII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 032/COM/BTID/VIII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 033/COM/BTID/VIII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 034/COM/BTID/VIII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 035/COM/BTID/VIII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 036/COM/BTID/VIII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 037/COM/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 038/COM/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 039/COM/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 040/COM/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 041/COM/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 042/COM/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 043/COM/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 044/COM/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 045/COM/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 046/COM/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 047/COM/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 048/COM/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 049/COM/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 050/COM/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 073/FF/BTID/VIII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 074/FF/BTID/VIII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 075/FF/BTID/VIII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 076/FF/BTID/VIII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 077/FF/BTID/IX/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 078/FF/BTID/IX/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 079/FF/BTID/IX/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 080/FF/BTID/IX/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 081/FF/BTID/IX/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 082/FF/BTID/IX/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 083/FF/BTID/IX/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 084/FF/BTID/IX/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 085/FF/BTID/IX/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 086/FF/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 087/FF/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 088/FF/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 089/FF/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 090/FF/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 091/FF/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 092/FF/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 093/FF/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 094/FF/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 095/FF/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 096/FF/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 097/FF/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 098/FF/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 099/FF/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 100/FF/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 101/FF/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 102/FF/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 103/FF/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 104/FF/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 105/FF/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 106/FF/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 01 and reg_id: 107/FF/BTID/X/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 03 and reg_id: 002/EQP/KKBP/IX/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 03 and reg_id: 001/COM/KKBP/VIII/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 03 and reg_id: 011/FF/KKBP/IX/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 03 and reg_id: 012/FF/KKBP/IX/24
+2024-12-13 08:46:58 [INFO]: Processing data for entity_cd: 03 and reg_id: 013/FF/KKBP/IX/24
+2024-12-13 08:46:58 [INFO]: Success get Data from Database
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 002/BD/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 002/VHC1/BTID/IX/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 40/EQP2/BTID/VIII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 002/EKEK/BTID/VII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/EKEK/BTID/VII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 004/EKEK/BTID/VII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 005/EKEK/BTID/VII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 006/EKEK/BTID/VII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 007/EKEK/BTID/VII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 008/EKEK/BTID/VII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 009/EKEK/BTID/VII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 010/EKEK/BTID/VII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 011/EKEK/BTID/VII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 012/EKEK/BTID/VII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 062/EQP/BTID/VII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 064/EQP/BTID/VII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 068/EQP/BTID/VIII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 069/EQP/BTID/VIII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 070/EQP/BTID/VIII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 071/EQP/BTID/VIII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 072/EQP/BTID/VIII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 073/EQP/BTID/VIII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 074/EQP/BTID/VIII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 075/EQP/BTID/VIII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 076/EQP/BTID/VIII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 077/EQP/BTID/VIII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 078/EQP/BTID/VIII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 079/EQP/BTID/IX/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 080/EQP/BTID/IX/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 081/EQP/BTID/IX/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 082/EQP/BTID/IX/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 083/EQP/BTID/IX/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 084/EQP/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 085/EQP/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 086/EQP/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 087/EQP/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 088/EQP/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 028/COM/BTID/VII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 030/COM/BTID/VIII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 031/COM/BTID/VIII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 032/COM/BTID/VIII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 033/COM/BTID/VIII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 034/COM/BTID/VIII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 035/COM/BTID/VIII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 036/COM/BTID/VIII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 037/COM/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 038/COM/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 039/COM/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 040/COM/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 041/COM/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 042/COM/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 043/COM/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 044/COM/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 045/COM/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 046/COM/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 047/COM/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 048/COM/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 049/COM/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 050/COM/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 073/FF/BTID/VIII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 074/FF/BTID/VIII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 075/FF/BTID/VIII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 076/FF/BTID/VIII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 077/FF/BTID/IX/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 078/FF/BTID/IX/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 079/FF/BTID/IX/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 080/FF/BTID/IX/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 081/FF/BTID/IX/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 082/FF/BTID/IX/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 083/FF/BTID/IX/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 084/FF/BTID/IX/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 085/FF/BTID/IX/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 086/FF/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 087/FF/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 088/FF/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 089/FF/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 090/FF/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 091/FF/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 092/FF/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 093/FF/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 094/FF/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 095/FF/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 096/FF/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 097/FF/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 098/FF/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 099/FF/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 100/FF/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 101/FF/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 102/FF/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 103/FF/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 104/FF/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 105/FF/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 106/FF/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 107/FF/BTID/X/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 03 and reg_id: 002/EQP/KKBP/IX/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 03 and reg_id: 001/COM/KKBP/VIII/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 03 and reg_id: 011/FF/KKBP/IX/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 03 and reg_id: 012/FF/KKBP/IX/24
+2024-12-13 08:47:02 [INFO]: Processing data for entity_cd: 03 and reg_id: 013/FF/KKBP/IX/24
+2024-12-13 08:47:03 [INFO]: Success update data to Database
+2024-12-13 08:47:18 [INFO]: Processing data for entity_cd: 01 and reg_id: 002/BD/BTID/X/24
+2024-12-13 08:47:18 [INFO]: Success get Data from Database
+2024-12-13 08:47:18 [INFO]: Processing data for entity_cd: 01 and reg_id: 002/BD/BTID/X/24
+2024-12-13 08:47:18 [INFO]: Success get Data from Database
+2024-12-13 08:47:22 [INFO]: Success get Data with QR from Database
+2024-12-13 08:47:25 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-13 08:47:25 [INFO]: Success get Data from Database
+2024-12-13 08:47:25 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-13 08:47:25 [INFO]: Success get Data from Database
+2024-12-13 08:48:07 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-13 08:48:08 [INFO]: Success get Data from Database
+2024-12-13 08:48:08 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-13 08:48:08 [INFO]: Success get Data from Database
+2024-12-13 08:48:22 [INFO]: Processing data for entity_cd: 01 and reg_id: 002/BD/BTID/X/24
+2024-12-13 08:48:22 [INFO]: Success get Data from Database
+2024-12-13 08:48:25 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-13 08:48:25 [INFO]: Success get Data from Database
+2024-12-13 08:48:25 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-13 08:48:25 [INFO]: Success get Data from Database
+2024-12-13 08:51:11 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-13 08:51:11 [INFO]: Success get Data from Database
+2024-12-13 08:51:26 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-13 08:51:26 [INFO]: Success get Data from Database
+2024-12-13 08:58:48 [INFO]: Processing data for entity_cd: 01 and reg_id: 002/BD/BTID/X/24
+2024-12-13 08:58:48 [INFO]: Success get Data from Database
+2024-12-13 08:59:05 [INFO]: Processing data for entity_cd: 01 and reg_id: 002/BD/BTID/X/24
+2024-12-13 08:59:05 [INFO]: Success get Data from Database
+2024-12-13 08:59:06 [INFO]: Processing data for entity_cd: 01 and reg_id: 002/BD/BTID/X/24
+2024-12-13 08:59:06 [INFO]: Success get Data from Database
+2024-12-13 09:00:02 [INFO]: Processing data for entity_cd: 01 and reg_id: 002/BD/BTID/X/24
+2024-12-13 09:00:02 [INFO]: Success get Data from Database
+2024-12-13 09:00:03 [INFO]: Processing data for entity_cd: 01 and reg_id: 002/BD/BTID/X/24
+2024-12-13 09:00:03 [INFO]: Success get Data from Database
+2024-12-13 09:00:04 [INFO]: Processing data for entity_cd: 01 and reg_id: 002/BD/BTID/X/24
+2024-12-13 09:00:04 [INFO]: Success get Data from Database
+2024-12-13 09:00:54 [INFO]: Processing data for entity_cd: 01 and reg_id: 002/BD/BTID/X/24
+2024-12-13 09:00:54 [INFO]: Success get Data from Database
+2024-12-13 09:00:57 [INFO]: Processing data for entity_cd: 01 and reg_id: 002/BD/BTID/X/24
+2024-12-13 09:00:57 [INFO]: Success get Data from Database
+2024-12-13 09:03:24 [INFO]: Processing data for entity_cd: 01 and reg_id: 002/BD/BTID/X/24
+2024-12-13 09:03:24 [INFO]: Success get Data from Database
+2024-12-13 09:03:38 [INFO]: Processing data for entity_cd: 01 and reg_id: 006/EQP2/BTID/VI/12
+2024-12-13 09:03:38 [INFO]: Success get Data from Database
+2024-12-13 09:04:08 [INFO]: Processing data for entity_cd: 01   and reg_id: 003/BD/BTID/X/24
+2024-12-13 09:04:08 [INFO]: Success get Data from Database
+2024-12-13 09:04:11 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-13 09:04:11 [INFO]: Success get Data from Database
+2024-12-13 09:04:33 [INFO]: Processing data for entity_cd: 01   and reg_id: 003/BD/BTID/X/24
+2024-12-13 09:04:33 [INFO]: Success get Data from Database
+2024-12-13 09:04:36 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-13 09:04:36 [INFO]: Success get Data from Database
+2024-12-13 09:04:40 [INFO]: Processing data for entity_cd: 01 and reg_id: 002/BD/BTID/X/24
+2024-12-13 09:04:40 [INFO]: Success get Data from Database
+2024-12-13 09:08:29 [INFO]: Processing data for entity_cd: 01 and reg_id: 006/EQP2/BTID/VI/12
+2024-12-13 09:08:29 [INFO]: Success get Data from Database
+2024-12-13 09:08:49 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-13 09:08:49 [INFO]: Success get Data from Database
+2024-12-13 09:09:53 [INFO]: Success get Data with QR from Database
+2024-12-13 09:10:11 [INFO]: No data non QR found on Database
+2024-12-13 09:10:13 [INFO]: No data non QR found on Database
+2024-12-13 09:10:18 [INFO]: No data non QR found on Database
+2024-12-13 09:10:27 [INFO]: Success get Data non QR from Database
+2024-12-13 09:10:29 [INFO]: Processing data for entity_cd: 01 and reg_id: 002/BD/BTID/X/24
+2024-12-13 09:10:29 [INFO]: Success get Data from Database
+2024-12-13 09:10:44 [INFO]: No data non QR found on Database
+2024-12-13 09:10:47 [INFO]: Success get Data with QR from Database
+2024-12-13 09:10:59 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-13 09:10:59 [INFO]: Success get Data from Database
+2024-12-13 09:10:59 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-13 09:10:59 [INFO]: Success get Data from Database
+2024-12-13 09:11:17 [INFO]: Processing data for entity_cd: 01 and reg_id: 002/BD/BTID/X/24
+2024-12-13 09:11:17 [INFO]: Success get Data from Database
+2024-12-13 09:11:38 [INFO]: Processing data for entity_cd: 01 and reg_id: 002/BD/BTID/X/24
+2024-12-13 09:11:38 [INFO]: Success get Data from Database
