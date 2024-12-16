@@ -63,12 +63,12 @@ export const UpdateAsset = async (req: Request, res: Response) => {
     const dataArray = Array.isArray(dataWhereD) ? dataWhereD : [dataWhereD];
 
     // Validate that each entry has the required fields
-    const validateFields = (details: { entity_cd: string; reg_id: string; location_map: string; url_file_attachment: string; status_review: string }) => {
+    const validateFields = (details: { entity_cd: string; reg_id: string; location_map: string; source_file_attachment: string; status_review: string }) => {
         const missingFields = [];
         if (!details.entity_cd) missingFields.push("entity_cd");
         if (!details.reg_id) missingFields.push("reg_id");
         if (!details.location_map) missingFields.push("location_map");
-        if (!details.url_file_attachment) missingFields.push("url_file_attachment");
+        if (!details.source_file_attachment) missingFields.push("source_file_attachment");
         if (!details.status_review) missingFields.push("status_review");
         return missingFields;
     };
@@ -137,7 +137,7 @@ export const UpdateAsset = async (req: Request, res: Response) => {
 
                     await ftpClient.access({
                         host: ftpDetails.FTPServer, // Ganti dengan host FTP Anda
-                        port: 21,
+                        port: ftpDetails.FTPPORT,
                         user: ftpDetails.FTPUser,       // Username FTP
                         password: ftpDetails.FTPPassword,// Password FTP
                         secure: false,           // Atur ke true jika menggunakan FTPS
