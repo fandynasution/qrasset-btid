@@ -1,0 +1,41 @@
+2024-12-16 13:58:59 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-16 13:58:59 [INFO]: Temporary file created at: D:\WORK\BTID\Project\qrasset-btid\storage\temppicture\Asset_01_003_BD_BTID_X_24.jpeg
+2024-12-16 13:59:00 [ERROR]: FTP upload failed for entity_cd: 01, reg_id: 003/BD/BTID/X/24. Error: RangeError [ERR_SOCKET_BAD_PORT]: Port should be >= 0 and < 65536. Received type number (NaN).
+2024-12-16 13:59:00 [INFO]: Successfully updated data for entity_cd: 01, reg_id: 003/BD/BTID/X/24
+2024-12-16 14:00:12 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-16 14:00:12 [INFO]: Temporary file created at: D:\WORK\BTID\Project\qrasset-btid\storage\temppicture\Asset_01_003_BD_BTID_X_24.jpeg
+2024-12-16 14:00:12 [ERROR]: FTP upload failed for entity_cd: 01, reg_id: 003/BD/BTID/X/24. Error: RangeError [ERR_SOCKET_BAD_PORT]: Port should be >= 0 and < 65536. Received type number (NaN).
+2024-12-16 14:00:12 [INFO]: Successfully updated data for entity_cd: 01, reg_id: 003/BD/BTID/X/24
+2024-12-16 14:02:31 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-16 14:02:31 [INFO]: Temporary file created at: D:\WORK\BTID\Project\qrasset-btid\storage\temppicture\Asset_01_003_BD_BTID_X_24.jpeg
+2024-12-16 14:02:32 [INFO]: [object Object]
+2024-12-16 14:02:32 [INFO]: Ensured folder exists: /ifca-att/FAAssetUpload/AssetPicture/
+2024-12-16 14:02:32 [INFO]: File uploaded to FTP: /ifca-att/FAAssetUpload/AssetPicture/Asset_01_003_BD_BTID_X_24.jpeg
+2024-12-16 14:02:32 [INFO]: Temporary file deleted: D:\WORK\BTID\Project\qrasset-btid\storage\temppicture\Asset_01_003_BD_BTID_X_24.jpeg
+2024-12-16 14:02:32 [INFO]: Successfully updated data for entity_cd: 01, reg_id: 003/BD/BTID/X/24
+2024-12-16 14:03:13 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-16 14:03:13 [INFO]: Temporary file created at: D:\WORK\BTID\Project\qrasset-btid\storage\temppicture\Asset_01_003_BD_BTID_X_24.jpeg
+2024-12-16 14:03:14 [INFO]: undefined
+2024-12-16 14:03:14 [INFO]: Ensured folder exists: /ifca-att/FAAssetUpload/AssetPicture/
+2024-12-16 14:03:15 [INFO]: File uploaded to FTP: /ifca-att/FAAssetUpload/AssetPicture/Asset_01_003_BD_BTID_X_24.jpeg
+2024-12-16 14:03:15 [INFO]: Temporary file deleted: D:\WORK\BTID\Project\qrasset-btid\storage\temppicture\Asset_01_003_BD_BTID_X_24.jpeg
+2024-12-16 14:03:15 [INFO]: Successfully updated data for entity_cd: 01, reg_id: 003/BD/BTID/X/24
+2024-12-16 14:03:57 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-16 14:03:57 [INFO]: Temporary file created at: D:\WORK\BTID\Project\qrasset-btid\storage\temppicture\Asset_01_003_BD_BTID_X_24.jpeg
+2024-12-16 14:03:57 [INFO]: 2111
+2024-12-16 14:03:57 [INFO]: Ensured folder exists: /ifca-att/FAAssetUpload/AssetPicture/
+2024-12-16 14:03:58 [INFO]: File uploaded to FTP: /ifca-att/FAAssetUpload/AssetPicture/Asset_01_003_BD_BTID_X_24.jpeg
+2024-12-16 14:03:58 [INFO]: Temporary file deleted: D:\WORK\BTID\Project\qrasset-btid\storage\temppicture\Asset_01_003_BD_BTID_X_24.jpeg
+2024-12-16 14:03:58 [INFO]: Successfully updated data for entity_cd: 01, reg_id: 003/BD/BTID/X/24
+2024-12-16 14:04:48 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-16 14:04:48 [INFO]: Temporary file created at: D:\WORK\BTID\Project\qrasset-btid\storage\temppicture\Asset_01_003_BD_BTID_X_24.jpeg
+2024-12-16 14:04:49 [INFO]: Ensured folder exists: /ifca-att/FAAssetUpload/AssetPicture/
+2024-12-16 14:04:49 [INFO]: File uploaded to FTP: /ifca-att/FAAssetUpload/AssetPicture/Asset_01_003_BD_BTID_X_24.jpeg
+2024-12-16 14:04:49 [INFO]: Temporary file deleted: D:\WORK\BTID\Project\qrasset-btid\storage\temppicture\Asset_01_003_BD_BTID_X_24.jpeg
+2024-12-16 14:04:49 [INFO]: Successfully updated data for entity_cd: 01, reg_id: 003/BD/BTID/X/24
+2024-12-16 14:05:24 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-16 14:05:24 [INFO]: Temporary file created at: D:\WORK\BTID\Project\qrasset-btid\storage\temppicture\Asset_01_003_BD_BTID_X_24.jpeg
+2024-12-16 14:05:24 [INFO]: Ensured folder exists: /ifca-att/FAAssetUpload/AssetPicture/
+2024-12-16 14:05:25 [INFO]: File uploaded to FTP: /ifca-att/FAAssetUpload/AssetPicture/Asset_01_003_BD_BTID_X_24.jpeg
+2024-12-16 14:05:25 [INFO]: Temporary file deleted: D:\WORK\BTID\Project\qrasset-btid\storage\temppicture\Asset_01_003_BD_BTID_X_24.jpeg
+2024-12-16 14:05:25 [INFO]: Successfully updated data for entity_cd: 01, reg_id: 003/BD/BTID/X/24
