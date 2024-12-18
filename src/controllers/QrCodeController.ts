@@ -176,6 +176,8 @@ export const generateOneQrCode = async (req: Request, res: Response) => {
     }
 
     try {
+        const filteredDataWithQRCode = [];
+
         for (const dataItem of dataArray) {
             const { entity_cd, reg_id } = dataItem;
             let ftpUrl: string | null = null;
@@ -219,19 +221,33 @@ export const generateOneQrCode = async (req: Request, res: Response) => {
 
                 ftpUrl = `${ftpDetails.URLPDF}${remoteFolderPath}${fileName}`;
 
-                console.log(ftpUrl);
-
                 fs.unlinkSync(tempFilePath);
                 logger.info(`Temporary file deleted: ${tempFilePath}`);
                 ftpClient.close();
+
+                // Add data with QR URL to the array for database insertion
+                filteredDataWithQRCode.push({
+                    entity_cd: entity_cd,
+                    reg_id: reg_id,
+                    qr_url_attachment: ftpUrl, // File path to be stored in DB
+                });
+
             } catch (ftpError) {
                 logger.error(`FTP upload failed for entity_cd: ${entity_cd}, reg_id: ${reg_id}. Error: ${ftpError}`);
             }
         }
 
+        // Insert the filtered data with QR code URLs into the database
+        if (filteredDataWithQRCode.length > 0) {
+            await QrCodeDataInsert(filteredDataWithQRCode);
+            logger.info("All QR codes successfully generated and saved to the database.");
+        } else {
+            logger.warn("No valid QR codes generated for database insertion.");
+        }
+
         res.status(200).json({
             success: true,
-            message: "QR Codes generated successfully"
+            message: "QR Codes generated successfully",
         });
     } catch (error: unknown) {
         const errorMessage = error instanceof Error ? error.message : "Unknown error occurred";
@@ -243,4 +259,4 @@ export const generateOneQrCode = async (req: Request, res: Response) => {
             error: errorMessage
         });
     }
-}
+};
