@@ -1,0 +1,25 @@
+2024-12-18 14:27:42 [ERROR]: Update failed. files (must contain between 1 and 3 files) is required
+2024-12-18 14:28:24 [ERROR]: Update failed. files Maximal 3 File(s) is required
+2024-12-18 14:30:24 [ERROR]: Update failed. files (at least 1 file required) is required
+2024-12-18 14:30:40 [ERROR]: Update failed. At least 1 file is required) is required
+2024-12-18 14:30:56 [ERROR]: Update failed. files (no more than 3 files allowed) is required
+2024-12-18 14:31:21 [ERROR]: Update failed. No more than 3 files allowed) is required
+2024-12-18 14:31:28 [ERROR]: Update failed. No more than 3 files allowed is required
+2024-12-18 14:47:27 [ERROR]: Update failed. No more than 3 files allowed is required
+2024-12-18 14:48:49 [ERROR]: Update failed. No more than 3 files allowed is required
+2024-12-18 15:22:10 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-18 15:29:41 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-18 15:29:41 [WARN]: Invalid file format for entity_cd: 01, reg_id: 003/BD/BTID/X/24
+2024-12-18 15:29:41 [ERROR]: Failed to update assets: File must be a valid Base64 image
+2024-12-18 15:31:17 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-18 15:31:17 [ERROR]: Failed to update assets: fileBase64.match is not a function
+2024-12-18 15:32:40 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-18 15:32:40 [ERROR]: Invalid file data at index 1 for reg_id: 003/BD/BTID/X/24. Expected a Base64 string.
+2024-12-18 15:39:08 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-18 15:39:08 [INFO]: Saved file: 003_BD_BTID_X_24_1.png for reg_id: 003/BD/BTID/X/24
+2024-12-18 15:39:08 [INFO]: Saved file: 003_BD_BTID_X_24_2.png for reg_id: 003/BD/BTID/X/24
+2024-12-18 15:39:08 [INFO]: Saved file: 003_BD_BTID_X_24_3.png for reg_id: 003/BD/BTID/X/24
+2024-12-18 16:06:56 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/BD/BTID/X/24
+2024-12-18 16:06:56 [INFO]: Saved file: 003_BD_BTID_X_24_1.png for reg_id: 003/BD/BTID/X/24
+2024-12-18 16:06:56 [INFO]: Saved file: 003_BD_BTID_X_24_2.png for reg_id: 003/BD/BTID/X/24
+2024-12-18 16:06:56 [INFO]: Saved file: 003_BD_BTID_X_24_3.png for reg_id: 003/BD/BTID/X/24
