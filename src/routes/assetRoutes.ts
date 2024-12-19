@@ -58,50 +58,42 @@ router.put('/update-asset', UpdateAsset);
  *       content:
  *         application/json:
  *           schema:
- *             type: array
- *             items:
- *               type: object
- *               properties:
- *                 entity_cd:
- *                   type: string
- *                   description: Entity code identifier
- *                 reg_id:
- *                   type: string
- *                   description: Registration ID of the asset
- *                 location_map:
- *                   type: string
- *                   description: Geographical coordinates (latitude and longitude)
- *                 status_review:
- *                   type: string
- *                   description: Status review identifier
- *                 notes:
- *                   type: string
- *                   description: Additional notes about the asset
- *                 audit_status:
- *                   type: string
- *                   description: Indicates if the asset has been audited ("Y" or "N")
- *                 url_file_attachment:
- *                   type: string
- *                   description: Base64 encoded image file
- *                   example: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAZABkAAD/..."
- *               example:
- *                 entity_cd: "01"
- *                 reg_id: "008/EQP2/BTID/VI/21"
- *                 location_map: "-6.21462, 106.84513"
- *                 status_review: "1"
- *                 notes: "Catatan Untuk Asset BTID"
- *                 audit_status: "Y"
- *                 files : [
- *                  { 
- *                      file_data :   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQMAAADDCAMAAACxkIT5AAAAkFBMVEUxMDL///8AAAAnJiguLS8rKiwODBAiIS..."
- *                  },
-  *                 { 
- *                      file_data :   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAR4AAACwCAMAAADudvHOAAAAw1BMVEX///8aGhr2mDMAAAD3o0gWFhYgICC5ubn2lSoODg7e3t71kRhpaWn2..."
- *                  },
-  *                 { 
- *                      file_data :   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAO0AAADVCAMAAACMuod9AAAAjVBMVEX///87bzs4bTgsZywlZCU0azQoZSgqZiowaTAhYiH8/"
- *                  }
- *                 ]
+ *             type: object
+ *             properties:
+ *               entity_cd:
+ *                 type: string
+ *                 description: Entity code identifier
+ *               reg_id:
+ *                 type: string
+ *                 description: Registration ID of the asset
+ *               location_map:
+ *                 type: string
+ *                 description: Geographical coordinates (latitude and longitude)
+ *               status_review:
+ *                 type: string
+ *                 description: Status review identifier
+ *               notes:
+ *                 type: string
+ *                 description: Additional notes about the asset
+ *               audit_status:
+ *                 type: string
+ *                 description: Indicates if the asset has been audited ("Y" or "N")
+ *               files:
+ *                 type: array
+ *                 description: List of image files in base64 encoding
+ *                 items:
+ *                   type: object
+ *                   properties:
+ *                     file_data:
+ *                       type: string
+ *                       description: Base64 encoded image data.
+ *                       example: |
+ *                         data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAR4AAACw
+ *                         CAMAAADudvHOAAAAw1BMVEX///8...
+ *                 example:
+ *                   - file_data: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAR4AAACw\nCAMAAADudvHOAAAAw1BMVEX///8..."
+ *                   - file_data: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAR4AAACw\nCAMAAADudvHOAAAAw1BMVEX///8..."
+ *                   - file_data: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAR4AAACw\nCAMAAADudvHOAAAAw1BMVEX///8..."
  *     responses:
  *       200:
  *         description: Successful update of asset data
