@@ -108,7 +108,7 @@ export const UpdateAsset = async (req: Request, res: Response) => {
         for (const dataItem of dataArray) {
             const { entity_cd, reg_id, url_file_attachment, status_review, notes, location_map, audit_status } = dataItem;
 
-            logger.info(`Processing data for entity_cd: ${entity_cd} and reg_id: ${reg_id}`);
+            logger.info(`Processing Update data for entity_cd: ${entity_cd} and reg_id: ${reg_id}`);
 
             // Upload ke FTP jika url_file_attachment ada
             let ftpUrl: string | null = null;

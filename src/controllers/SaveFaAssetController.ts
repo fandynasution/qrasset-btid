@@ -98,7 +98,7 @@ export const UpdateAsset = async (req: Request, res: Response) => {
         for (const dataItem of dataArray) {
             const { entity_cd, reg_id, files, status_review, notes, location_map, audit_status } = dataItem;
 
-            logger.info(`Processing data for entity_cd: ${entity_cd} and reg_id: ${reg_id}`);
+            logger.info(`Processing Update data for entity_cd: ${entity_cd} and reg_id: ${reg_id}`);
 
             // Ensure reg_id is sanitized for file names
             const sanitizedRegId = reg_id.replace(/\//g, "_");
