@@ -5,7 +5,7 @@ import multer from "multer";
 import * as ftp from 'basic-ftp';
 import { createLogger, format, transports } from "winston";
 import { checkAndUpdateAsset, syncToFassetTrx } from '../models/SaveFaAssetModel';
-import { checkAndUpdate } from '../models/FaAssetSaveModel';
+import { checkAndUpdate, UpdatetoFassetTrx } from '../models/FaAssetSaveModel';
 import { getFtpDetails } from '../models/QrCodeModel';
 
 // Ensure the target directory exists
@@ -104,53 +104,117 @@ export const UpdateAsset = async (req: Request, res: Response) => {
             const sanitizedRegId = reg_id.replace(/\//g, "_");
 
             // Process each file
-            const filePaths: string[] = [];  // To store file paths for update
+            const filePaths = []; // To store file paths for update
+            const ftpUrls = [];   // To store FTP URLs
+
             for (const [index, fileObj] of files.entries()) {
-                // Ensure the fileObj contains the expected key `file_data`
-                if (!fileObj || typeof fileObj.file_data !== 'string') {
-                    logger.error(`Invalid file object at index ${index + 1} for reg_id: ${reg_id}. Expected a 'file_data' string.`);
-                    res.status(400).json({
-                        success: false,
-                        message: `Invalid file object at index ${index + 1}. Expected a 'file_data' string.`,
-                        reg_id,
+                try {
+                    // Validate fileObj and Base64 string
+                    if (!fileObj || typeof fileObj.file_data !== 'string') {
+                        throw new Error(`Invalid file object at index ${index + 1}. Expected a 'file_data' string.`);
+                    }
+
+                    const fileBase64 = fileObj.file_data;
+                    const match = fileBase64.match(/^data:image\/(png|jpeg|jpg);base64,(.+)$/);
+                    if (!match) {
+                        throw new Error(`Invalid Base64 format for file ${index + 1}`);
+                    }
+
+                    const fileType = match[1];
+                    const fileData = match[2];
+                    const buffer = Buffer.from(fileData, 'base64');
+
+                    // Generate unique file name
+                    const now = new Date();
+                    const dateTime = now.toISOString().slice(0, 19).replace(/[:.-]/g, '_');
+                    const fileName = `${sanitizedRegId}_${dateTime}_${index + 1}.${fileType}`;
+                    const filePath = path.join(uploadDir, fileName);
+
+                    // Write the file locally
+                    fs.writeFileSync(filePath, buffer);
+                    logger.info(`Saved file: ${fileName} for reg_id: ${reg_id}`);
+                    filePaths.push(filePath);
+
+                    // Upload file to FTP
+                    const ftpClient = new ftp.Client();
+                    ftpClient.ftp.verbose = true;
+
+                    const ftpDetails = await getFtpDetails();
+                    await ftpClient.access({
+                        host: ftpDetails.FTPServer,
+                        port: parseInt(ftpDetails.FTPPort, 10),
+                        user: ftpDetails.FTPUser,
+                        password: ftpDetails.FTPPassword,
+                        secure: false,
                     });
+
+                    const remoteFolderPath = `/ifca-att/FAAssetUpload/AssetPicture/`;
+                    await ftpClient.ensureDir(remoteFolderPath);
+                    logger.info(`Ensured folder exists: ${remoteFolderPath}`);
+
+                    const remoteFilePath = `${remoteFolderPath}${fileName}`;
+                    await ftpClient.uploadFrom(filePath, remoteFilePath);
+                    logger.info(`File uploaded to FTP: ${remoteFilePath}`);
+
+                    ftpUrls.push(`${ftpDetails.URLPDF}${remoteFolderPath}${fileName}`);
+
+                    // Clean up local file
+                    fs.unlinkSync(filePath);
+                    logger.info(`Temporary file deleted: ${fileName}`);
+
+                    ftpClient.close();
+                } catch (error) {
+                    if (error instanceof Error) {
+                        logger.error(`Error processing file at index ${index + 1} for reg_id: ${reg_id}. Error: ${error.message}`);
+                        res.status(400).json({
+                            success: false,
+                            message: error.message,
+                            reg_id,
+                        });
+                    } else {
+                        logger.error(`Error processing file at index ${index + 1} for reg_id: ${reg_id}. Unknown error occurred.`);
+                        res.status(400).json({
+                            success: false,
+                            message: "An unknown error occurred.",
+                            reg_id,
+                        });
+                    }
                     return;
                 }
-            
-                const fileBase64 = fileObj.file_data;
-            
-                // Validate Base64 format
-                const match = fileBase64.match(/^data:image\/(png|jpeg|jpg);base64,(.+)$/);
-                if (!match) {
-                    logger.error(`Invalid Base64 format for file ${index + 1} of reg_id: ${reg_id}`);
-                    res.status(400).json({
-                        success: false,
-                        message: `Invalid Base64 format for file ${index + 1}`,
-                        reg_id,
-                    });
-                    return;
-                }
-            
-                const fileType = match[1]; // File extension (png, jpeg, jpg)
-                const fileData = match[2]; // Base64 encoded data
-            
-                // Decode Base64 data
-                const buffer = Buffer.from(fileData, 'base64');
-            
-                // Generate unique file name
-                const fileName = `${sanitizedRegId}_${index + 1}.${fileType}`;
-                const filePath = path.join(uploadDir, fileName);
-            
-                // Write the file to the target directory
-                fs.writeFileSync(filePath, buffer);
-            
-                logger.info(`Saved file: ${fileName} for reg_id: ${reg_id}`);
-                filePaths.push(filePath); // Add file path for update
             }
 
             // Call checkAndUpdateAsset function to update the database with the files' information
-            await checkAndUpdate(entity_cd, reg_id, filePaths);
+            try {
+                await checkAndUpdate(entity_cd, reg_id, status_review, location_map, ftpUrls);
 
+                const fassetTrxUpdates = {
+                    new_status_review: status_review || null,
+                    note: notes || null,
+                    new_location_map: location_map || null,
+                    audit_status: audit_status || null,
+                    ftpUrlupdate: ftpUrls.length > 0 ? ftpUrls : null, // Ensure ftpUrlupdateNew is null if no URLs are present
+                };
+
+                await UpdatetoFassetTrx(entity_cd, reg_id, fassetTrxUpdates);
+            } catch (error) {
+                if (error instanceof Error) {
+                    logger.error(`Error updating database for reg_id: ${reg_id}. Error: ${error.message}`);
+                    res.status(400).json({
+                        success: false,
+                        message: error.message,
+                        reg_id,
+                    });
+                } else {
+                    logger.error(`Error updating database for reg_id: ${reg_id}. Error: Unknown error occurred.`);
+                    res.status(400).json({
+                        success: false,
+                        message: "An unknown error occurred.",
+                        reg_id,
+                    });
+                }
+                return;
+            }
+            
         }
 
         res.status(200).json({
