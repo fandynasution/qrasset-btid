@@ -210,3 +210,105 @@
 2024-12-19 10:37:49 [INFO]: File uploaded to FTP: /ifca-att/FAAssetUpload/AssetPicture/003_VHC2_BTID_X_23_2024_12_19T03_37_49_3.png
 2024-12-19 10:37:49 [INFO]: Temporary file deleted: 003_VHC2_BTID_X_23_2024_12_19T03_37_49_3.png
 2024-12-19 10:37:49 [ERROR]: Data updated in fa_fasset for entity_cd: 01, reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:04:04 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:04:04 [INFO]: Saved file: 003_VHC2_BTID_X_23_2024_12_19T04_04_04_1.png for reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:04:04 [INFO]: Ensured folder exists: /ifca-att/FAAssetUpload/AssetPicture/
+2024-12-19 11:04:04 [INFO]: File uploaded to FTP: /ifca-att/FAAssetUpload/AssetPicture/003_VHC2_BTID_X_23_2024_12_19T04_04_04_1.png
+2024-12-19 11:04:04 [INFO]: Temporary file deleted: 003_VHC2_BTID_X_23_2024_12_19T04_04_04_1.png
+2024-12-19 11:04:04 [INFO]: Saved file: 003_VHC2_BTID_X_23_2024_12_19T04_04_04_2.png for reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:04:04 [INFO]: Ensured folder exists: /ifca-att/FAAssetUpload/AssetPicture/
+2024-12-19 11:04:04 [INFO]: File uploaded to FTP: /ifca-att/FAAssetUpload/AssetPicture/003_VHC2_BTID_X_23_2024_12_19T04_04_04_2.png
+2024-12-19 11:04:04 [INFO]: Temporary file deleted: 003_VHC2_BTID_X_23_2024_12_19T04_04_04_2.png
+2024-12-19 11:04:04 [ERROR]: Data updated in fa_fasset for entity_cd: 01, reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:07:13 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:07:13 [INFO]: Saved file: 003_VHC2_BTID_X_23_2024_12_19T04_07_13_1.png for reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:07:13 [INFO]: Ensured folder exists: /ifca-att/FAAssetUpload/AssetPicture/
+2024-12-19 11:07:13 [INFO]: File uploaded to FTP: /ifca-att/FAAssetUpload/AssetPicture/003_VHC2_BTID_X_23_2024_12_19T04_07_13_1.png
+2024-12-19 11:07:13 [INFO]: Temporary file deleted: 003_VHC2_BTID_X_23_2024_12_19T04_07_13_1.png
+2024-12-19 11:07:13 [INFO]: Saved file: 003_VHC2_BTID_X_23_2024_12_19T04_07_13_2.png for reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:07:13 [INFO]: Ensured folder exists: /ifca-att/FAAssetUpload/AssetPicture/
+2024-12-19 11:07:13 [INFO]: File uploaded to FTP: /ifca-att/FAAssetUpload/AssetPicture/003_VHC2_BTID_X_23_2024_12_19T04_07_13_2.png
+2024-12-19 11:07:13 [INFO]: Temporary file deleted: 003_VHC2_BTID_X_23_2024_12_19T04_07_13_2.png
+2024-12-19 11:07:13 [ERROR]: Data updated in fa_fasset for entity_cd: 01, reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:09:40 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:09:40 [INFO]: Saved file: 003_VHC2_BTID_X_23_2024_12_19T04_09_40_1.png for reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:09:40 [INFO]: Ensured folder exists: /ifca-att/FAAssetUpload/AssetPicture/
+2024-12-19 11:09:40 [INFO]: File uploaded to FTP: /ifca-att/FAAssetUpload/AssetPicture/003_VHC2_BTID_X_23_2024_12_19T04_09_40_1.png
+2024-12-19 11:09:40 [INFO]: Temporary file deleted: 003_VHC2_BTID_X_23_2024_12_19T04_09_40_1.png
+2024-12-19 11:09:40 [INFO]: Saved file: 003_VHC2_BTID_X_23_2024_12_19T04_09_40_2.png for reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:09:40 [INFO]: Ensured folder exists: /ifca-att/FAAssetUpload/AssetPicture/
+2024-12-19 11:09:40 [INFO]: File uploaded to FTP: /ifca-att/FAAssetUpload/AssetPicture/003_VHC2_BTID_X_23_2024_12_19T04_09_40_2.png
+2024-12-19 11:09:40 [INFO]: Temporary file deleted: 003_VHC2_BTID_X_23_2024_12_19T04_09_40_2.png
+2024-12-19 11:09:40 [ERROR]: Data updated in fa_fasset for entity_cd: 01, reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:11:52 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:11:52 [INFO]: Saved file: 003_VHC2_BTID_X_23_2024_12_19T04_11_52_1.png for reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:11:52 [INFO]: Ensured folder exists: /ifca-att/FAAssetUpload/AssetPicture/
+2024-12-19 11:11:52 [INFO]: File uploaded to FTP: /ifca-att/FAAssetUpload/AssetPicture/003_VHC2_BTID_X_23_2024_12_19T04_11_52_1.png
+2024-12-19 11:11:52 [INFO]: Temporary file deleted: 003_VHC2_BTID_X_23_2024_12_19T04_11_52_1.png
+2024-12-19 11:11:52 [INFO]: Saved file: 003_VHC2_BTID_X_23_2024_12_19T04_11_52_2.png for reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:11:53 [INFO]: Ensured folder exists: /ifca-att/FAAssetUpload/AssetPicture/
+2024-12-19 11:11:53 [INFO]: File uploaded to FTP: /ifca-att/FAAssetUpload/AssetPicture/003_VHC2_BTID_X_23_2024_12_19T04_11_52_2.png
+2024-12-19 11:11:53 [INFO]: Temporary file deleted: 003_VHC2_BTID_X_23_2024_12_19T04_11_52_2.png
+2024-12-19 11:11:53 [ERROR]: Data updated in fa_fasset for entity_cd: 01, reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:12:09 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:12:09 [INFO]: Saved file: 003_VHC2_BTID_X_23_2024_12_19T04_12_09_1.png for reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:12:09 [INFO]: Ensured folder exists: /ifca-att/FAAssetUpload/AssetPicture/
+2024-12-19 11:12:09 [INFO]: File uploaded to FTP: /ifca-att/FAAssetUpload/AssetPicture/003_VHC2_BTID_X_23_2024_12_19T04_12_09_1.png
+2024-12-19 11:12:09 [INFO]: Temporary file deleted: 003_VHC2_BTID_X_23_2024_12_19T04_12_09_1.png
+2024-12-19 11:12:09 [INFO]: Saved file: 003_VHC2_BTID_X_23_2024_12_19T04_12_09_2.png for reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:12:09 [INFO]: Ensured folder exists: /ifca-att/FAAssetUpload/AssetPicture/
+2024-12-19 11:12:09 [INFO]: File uploaded to FTP: /ifca-att/FAAssetUpload/AssetPicture/003_VHC2_BTID_X_23_2024_12_19T04_12_09_2.png
+2024-12-19 11:12:09 [INFO]: Temporary file deleted: 003_VHC2_BTID_X_23_2024_12_19T04_12_09_2.png
+2024-12-19 11:12:09 [INFO]: Saved file: 003_VHC2_BTID_X_23_2024_12_19T04_12_09_3.png for reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:12:09 [INFO]: Ensured folder exists: /ifca-att/FAAssetUpload/AssetPicture/
+2024-12-19 11:12:09 [INFO]: File uploaded to FTP: /ifca-att/FAAssetUpload/AssetPicture/003_VHC2_BTID_X_23_2024_12_19T04_12_09_3.png
+2024-12-19 11:12:09 [INFO]: Temporary file deleted: 003_VHC2_BTID_X_23_2024_12_19T04_12_09_3.png
+2024-12-19 11:12:09 [ERROR]: Data updated in fa_fasset for entity_cd: 01, reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:12:25 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:12:25 [INFO]: Saved file: 003_VHC2_BTID_X_23_2024_12_19T04_12_25_1.png for reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:12:25 [INFO]: Ensured folder exists: /ifca-att/FAAssetUpload/AssetPicture/
+2024-12-19 11:12:25 [INFO]: File uploaded to FTP: /ifca-att/FAAssetUpload/AssetPicture/003_VHC2_BTID_X_23_2024_12_19T04_12_25_1.png
+2024-12-19 11:12:25 [INFO]: Temporary file deleted: 003_VHC2_BTID_X_23_2024_12_19T04_12_25_1.png
+2024-12-19 11:12:25 [ERROR]: Data updated in fa_fasset for entity_cd: 01, reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:13:12 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:13:12 [INFO]: Saved file: 003_VHC2_BTID_X_23_2024_12_19T04_13_12_1.png for reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:13:12 [INFO]: Ensured folder exists: /ifca-att/FAAssetUpload/AssetPicture/
+2024-12-19 11:13:12 [INFO]: File uploaded to FTP: /ifca-att/FAAssetUpload/AssetPicture/003_VHC2_BTID_X_23_2024_12_19T04_13_12_1.png
+2024-12-19 11:13:12 [INFO]: Temporary file deleted: 003_VHC2_BTID_X_23_2024_12_19T04_13_12_1.png
+2024-12-19 11:13:12 [INFO]: Saved file: 003_VHC2_BTID_X_23_2024_12_19T04_13_12_2.png for reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:13:12 [INFO]: Ensured folder exists: /ifca-att/FAAssetUpload/AssetPicture/
+2024-12-19 11:13:12 [INFO]: File uploaded to FTP: /ifca-att/FAAssetUpload/AssetPicture/003_VHC2_BTID_X_23_2024_12_19T04_13_12_2.png
+2024-12-19 11:13:12 [INFO]: Temporary file deleted: 003_VHC2_BTID_X_23_2024_12_19T04_13_12_2.png
+2024-12-19 11:13:12 [INFO]: Saved file: 003_VHC2_BTID_X_23_2024_12_19T04_13_12_3.png for reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:13:12 [INFO]: Ensured folder exists: /ifca-att/FAAssetUpload/AssetPicture/
+2024-12-19 11:13:12 [INFO]: File uploaded to FTP: /ifca-att/FAAssetUpload/AssetPicture/003_VHC2_BTID_X_23_2024_12_19T04_13_12_3.png
+2024-12-19 11:13:12 [INFO]: Temporary file deleted: 003_VHC2_BTID_X_23_2024_12_19T04_13_12_3.png
+2024-12-19 11:13:12 [ERROR]: Data updated in fa_fasset for entity_cd: 01, reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:15:57 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:15:57 [INFO]: Saved file: 003_VHC2_BTID_X_23_2024_12_19T04_15_57_1.png for reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:15:57 [INFO]: Ensured folder exists: /ifca-att/FAAssetUpload/AssetPicture/
+2024-12-19 11:15:57 [INFO]: File uploaded to FTP: /ifca-att/FAAssetUpload/AssetPicture/003_VHC2_BTID_X_23_2024_12_19T04_15_57_1.png
+2024-12-19 11:15:57 [INFO]: Temporary file deleted: 003_VHC2_BTID_X_23_2024_12_19T04_15_57_1.png
+2024-12-19 11:15:57 [INFO]: Saved file: 003_VHC2_BTID_X_23_2024_12_19T04_15_57_2.png for reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:15:57 [INFO]: Ensured folder exists: /ifca-att/FAAssetUpload/AssetPicture/
+2024-12-19 11:15:57 [INFO]: File uploaded to FTP: /ifca-att/FAAssetUpload/AssetPicture/003_VHC2_BTID_X_23_2024_12_19T04_15_57_2.png
+2024-12-19 11:15:57 [INFO]: Temporary file deleted: 003_VHC2_BTID_X_23_2024_12_19T04_15_57_2.png
+2024-12-19 11:15:57 [INFO]: Saved file: 003_VHC2_BTID_X_23_2024_12_19T04_15_57_3.png for reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:15:57 [INFO]: Ensured folder exists: /ifca-att/FAAssetUpload/AssetPicture/
+2024-12-19 11:15:57 [INFO]: File uploaded to FTP: /ifca-att/FAAssetUpload/AssetPicture/003_VHC2_BTID_X_23_2024_12_19T04_15_57_3.png
+2024-12-19 11:15:57 [INFO]: Temporary file deleted: 003_VHC2_BTID_X_23_2024_12_19T04_15_57_3.png
+2024-12-19 11:15:57 [ERROR]: Data updated in fa_fasset for entity_cd: 01, reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:16:10 [INFO]: Processing data for entity_cd: 01 and reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:16:10 [INFO]: Saved file: 003_VHC2_BTID_X_23_2024_12_19T04_16_10_1.png for reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:16:10 [INFO]: Ensured folder exists: /ifca-att/FAAssetUpload/AssetPicture/
+2024-12-19 11:16:10 [INFO]: File uploaded to FTP: /ifca-att/FAAssetUpload/AssetPicture/003_VHC2_BTID_X_23_2024_12_19T04_16_10_1.png
+2024-12-19 11:16:10 [INFO]: Temporary file deleted: 003_VHC2_BTID_X_23_2024_12_19T04_16_10_1.png
+2024-12-19 11:16:10 [INFO]: Saved file: 003_VHC2_BTID_X_23_2024_12_19T04_16_10_2.png for reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:16:10 [INFO]: Ensured folder exists: /ifca-att/FAAssetUpload/AssetPicture/
+2024-12-19 11:16:10 [INFO]: File uploaded to FTP: /ifca-att/FAAssetUpload/AssetPicture/003_VHC2_BTID_X_23_2024_12_19T04_16_10_2.png
+2024-12-19 11:16:10 [INFO]: Temporary file deleted: 003_VHC2_BTID_X_23_2024_12_19T04_16_10_2.png
+2024-12-19 11:16:10 [INFO]: Saved file: 003_VHC2_BTID_X_23_2024_12_19T04_16_10_3.png for reg_id: 003/VHC2/BTID/X/23
+2024-12-19 11:16:11 [INFO]: Ensured folder exists: /ifca-att/FAAssetUpload/AssetPicture/
+2024-12-19 11:16:11 [INFO]: File uploaded to FTP: /ifca-att/FAAssetUpload/AssetPicture/003_VHC2_BTID_X_23_2024_12_19T04_16_10_3.png
+2024-12-19 11:16:11 [INFO]: Temporary file deleted: 003_VHC2_BTID_X_23_2024_12_19T04_16_10_3.png
+2024-12-19 11:16:11 [ERROR]: Data updated in fa_fasset for entity_cd: 01, reg_id: 003/VHC2/BTID/X/23

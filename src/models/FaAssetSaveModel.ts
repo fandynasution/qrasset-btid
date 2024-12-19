@@ -124,34 +124,44 @@ const update = async (entity_cd: string, reg_id: string, status_review: string, 
         let updateFields: string[] = [];
         
         // Menyusun klausa UPDATE
-        for (const [key, value] of Object.entries(updates)) {
+        // Selalu tambahkan kolom 'url_file_attachment2' dan 'url_file_attachment3' meskipun nilainya null
+        const mandatoryFields = ['url_file_attachment', 'url_file_attachment2', 'url_file_attachment3'];
+    
+        // Pastikan ketiga kolom selalu ada dalam klausa UPDATE
+        for (const field of mandatoryFields) {
+            const value = updates[field] ?? null; // Jika null, tetapkan null
             if (value !== null) {
-                updateFields.push(`${key} = @${key}`);
+                updateFields.push(`${field} = @${field}`);
+            } else {
+                updateFields.push(`${field} = @${field}`); // Tetap masukkan kolom dengan null
             }
         }
 
+         // Tambahkan kolom status_review dan location_map
+        updateFields.push('status_review = @status_review');
+        updateFields.push('location_map = @location_map');
+    
         const setClause = updateFields.join(', ');
         const request = pool.request();
         request.input('entity_cd', sql.VarChar, entity_cd);
         request.input('reg_id', sql.VarChar, reg_id);
-
-        // Menambahkan parameter untuk setiap field yang diperbarui
-        for (const [key, value] of Object.entries(updates)) {
-            if (value === null) {
-                // Jika null, set null untuk kolom string atau kolom lain
-                request.input(key, sql.VarChar, null); // Set null untuk tipe string
-            } else {
-                // Untuk tipe lainnya (seperti string), set sesuai dengan tipe data
-                request.input(key, sql.VarChar, value);
-            }
+    
+        // Menambahkan parameter untuk setiap field yang diperbarui (termasuk null)
+        for (const field of mandatoryFields) {
+            const value = updates[field] ?? null; // Pastikan jika null, gunakan null
+            request.input(field, sql.VarChar, value); // Gunakan sql.VarChar untuk null atau string
         }
-
+        
+        // Tambahkan parameter untuk status_review dan location_map
+        request.input('status_review', sql.VarChar, status_review);
+        request.input('location_map', sql.VarChar, location_map);
+    
         await request.query(`
             UPDATE mgr.fa_fasset
             SET ${setClause}
             WHERE entity_cd = @entity_cd AND reg_id = @reg_id
         `);
-
+    
         logger.error(`Data updated in fa_fasset for entity_cd: ${entity_cd}, reg_id: ${reg_id}`);
     } catch (error) {
         logger.error("Error updating asset:", error);
