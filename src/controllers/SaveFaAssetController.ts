@@ -156,7 +156,7 @@ export const UpdateAsset = async (req: Request, res: Response) => {
                     await ftpClient.uploadFrom(filePath, remoteFilePath);
                     logger.info(`File uploaded to FTP: ${remoteFilePath}`);
 
-                    ftpUrls.push(`${ftpDetails.URLPDF}${remoteFolderPath}${fileName}`);
+                    ftpUrls.push(`${ftpDetails.qrview}${remoteFolderPath}${fileName}`);
 
                     // Clean up local file
                     fs.unlinkSync(filePath);
