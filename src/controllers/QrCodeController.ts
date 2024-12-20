@@ -219,7 +219,7 @@ export const generateOneQrCode = async (req: Request, res: Response) => {
                 await ftpClient.uploadFrom(tempFilePath, remoteFilePath);
                 logger.info(`File uploaded to FTP: ${remoteFilePath}`);
 
-                ftpUrl = `${ftpDetails.URLPDF}${remoteFolderPath}${fileName}`;
+                ftpUrl = `${ftpDetails.qrview}${remoteFolderPath}${fileName}`;
 
                 fs.unlinkSync(tempFilePath);
                 logger.info(`Temporary file deleted: ${tempFilePath}`);

@@ -51,7 +51,7 @@ export const QrCodeDataInsert = async (data: any) => {
 
         // Jalankan query untuk mendapatkan detail FTP tanpa kondisi WHERE
         const result = await request.query(`
-            SELECT FTPServer, FTPUser, FTPPassword, FTPPort, URLPDF
+            SELECT FTPServer, FTPUser, FTPPassword, FTPPort, URLPDF, qrview
             FROM mgr.ftp_spec
         `);
 
