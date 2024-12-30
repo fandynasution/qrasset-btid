@@ -12,7 +12,6 @@ router.get("/datawithqr", DatawithQr);
 router.put('/update-print', DataUpdatePrint);
 
 router.post("/get-asset", DataWhere);
-router.post("/get-asset-trx", DataWhereTrx);
 /**
  * @swagger
  * /api/get-asset:
@@ -35,7 +34,41 @@ router.post("/get-asset-trx", DataWhereTrx);
  *                   type: string
  *               example:
  *                 entity_cd: "01"
- *                 reg_id: "006/EQP2/BTID/VI/12"
+ *                 reg_id: "025/EQP/BTID/VII/18"
+ *     responses:
+ *       200:
+ *         description: Successful Select Data 
+ *       404:
+ *         description: No Data on DB
+ *       500:
+ *         description: Error Connection to DB
+ */
+
+router.post("/get-asset-trx", DataWhereTrx);
+
+/**
+ * @swagger
+ * /api/get-asset-trx:
+ *   post:
+ *     summary: Select QR Asset Audit with specified parameter
+ *     description: Run this URL to View QR Asset Audit with specified parameter
+ *     tags: [For QR Code Power Apps]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: array
+ *             items:
+ *               type: object
+ *               properties:
+ *                 entity_cd:
+ *                   type: string
+ *                 reg_id:
+ *                   type: string
+ *               example:
+ *                 entity_cd: "01"
+ *                 reg_id: "025/EQP/BTID/VII/18"
  *     responses:
  *       200:
  *         description: Successful Select Data 
