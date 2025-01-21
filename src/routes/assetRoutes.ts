@@ -12,6 +12,7 @@ router.post("/generateqr", generateOneQrCode);
 router.get("/datanonqr", DatanonQr);
 router.get("/datawithqr", DatawithQr);
 router.put('/update-print', DataUpdatePrint);
+router.get('/datastaff', getStaffData);
 
 router.post("/get-asset", DataWhere);
 /**
@@ -137,7 +138,4 @@ router.put('/update-asset', UpdateAsset);
  *       500:
  *         description: Error connecting to the database
  */
-
-router.get('/data-staff', getStaffData);
-// router.put('/staff-asset', getStaffData);
 export default router;
