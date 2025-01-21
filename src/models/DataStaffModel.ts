@@ -21,7 +21,6 @@ export const GetDataStaffId = async (staff_id: string) => {
             .input('staff_id', sql.VarChar, staff_id || null)
             .query(`
                 SELECT * FROM mgr.v_fa_fasset_staff_data
-                WHERE staff_id = @staff_id
             `);
         return result.recordset;
     } catch (error) {
