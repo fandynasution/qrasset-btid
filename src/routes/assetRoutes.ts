@@ -13,7 +13,7 @@ router.get("/datanonqr", DatanonQr);
 router.get("/datawithqr", DatawithQr);
 router.put('/update-print', DataUpdatePrint);
 router.get('/datastaff', getStaffData);
-router.get('/datastaffId', getStaffDataId);
+router.put('/datastaffId', getStaffDataId);
 router.put('/updatestaff', updateStaffData);
 
 router.post("/get-asset", DataWhere);

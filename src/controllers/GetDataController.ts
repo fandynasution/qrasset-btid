@@ -42,7 +42,7 @@ export const getStaffData = async (req: Request, res: Response) => {
         const datanonQr = await GetDataStaff();
 
         if (datanonQr.length === 0) {
-            const errorMessage = "No data non QR found on Database";
+            const errorMessage = "No data Staff found on Database";
             logger.info(errorMessage); // Log error
             return res.status(404).json({
                 success: true,
@@ -50,7 +50,7 @@ export const getStaffData = async (req: Request, res: Response) => {
             });
         }   
         
-        logger.info('Success get Data non QR from Database');
+        logger.info('Success get Data Staff from Database');
 
         res.status(200).json({
             success: true,
@@ -85,7 +85,7 @@ export const getStaffDataId = async (req: Request, res: Response) => {
         const datanonQr = await GetDataStaffId(staff_id); // Panggil GetDataStaffId dengan staff_id
 
         if (datanonQr.length === 0) {
-            const errorMessage = "No data non QR found on Database";
+            const errorMessage = "No data Staff found on Database";
             logger.info(errorMessage); // Log info
             return res.status(404).json({
                 success: true,
@@ -93,7 +93,7 @@ export const getStaffDataId = async (req: Request, res: Response) => {
             });
         }
 
-        logger.info('Success get Data non QR from Database');
+        logger.info('Success get Data Staff from Database');
 
         res.status(200).json({
             success: true,
@@ -169,7 +169,7 @@ export const updateStaffData = async (req: Request, res: Response) => {
     try {
         const dataStaffSave = await saveDataStaffAsset(entity_cd, reg_id, staff_id, div_cd, dept_cd);
 
-        logger.info('Success update Data non QR from Database');
+        logger.info('Success update Data Staff on Database');
 
         res.status(200).json({
             success: true,
