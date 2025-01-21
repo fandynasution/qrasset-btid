@@ -3,7 +3,7 @@ import { generateAndSaveQrCode, generateOneQrCode } from '../controllers/QrCodeC
 import { DatanonQr, DatawithQr, DataWhere, DataUpdatePrint, DataWhereTrx } from '../controllers/FaAssetController';
 import { UpdateAsset } from '../controllers/SaveFaAssetController';
 
-import { getStaffData } from '../controllers/GetDataController';
+import { getStaffData, getStaffDataId, updateStaffData } from '../controllers/GetDataController';
 
 const router = express.Router();
 
@@ -13,6 +13,8 @@ router.get("/datanonqr", DatanonQr);
 router.get("/datawithqr", DatawithQr);
 router.put('/update-print', DataUpdatePrint);
 router.get('/datastaff', getStaffData);
+router.get('/datastaffId', getStaffDataId);
+router.put('/updatestaff', updateStaffData);
 
 router.post("/get-asset", DataWhere);
 /**
