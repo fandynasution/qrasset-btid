@@ -17,10 +17,16 @@ export const GetDataStaff = async () => {
 export const GetDataStaffId = async (staff_id: string) => {
     try {
         const pool = await poolPromise;  // Get the pool
+
+        console.log("Query being executed:", `
+            SELECT * FROM mgr.v_fa_fasset_staff_data
+            WHERE staff_id = '${staff_id}'
+        `);
         const result = await pool.request()
-            .input('staff_id', sql.VarChar, staff_id || null)
+            .input('staff_id', sql.VarChar, staff_id)
             .query(`
                 SELECT * FROM mgr.v_fa_fasset_staff_data
+                WHERE staff_id = @staff_id
             `);
         return result.recordset;
     } catch (error) {
