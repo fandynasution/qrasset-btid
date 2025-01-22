@@ -82,6 +82,7 @@ export const getStaffDataId = async (req: Request, res: Response) => {
 
     try {
         const { staff_id } = req.params; // Ambil staff_id dari req.params
+        console.log('Received staff_id:', staff_id);
         const datanonQr = await GetDataStaffId(staff_id); // Panggil GetDataStaffId dengan staff_id
 
         if (datanonQr.length === 0) {
