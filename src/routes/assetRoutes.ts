@@ -29,7 +29,73 @@ router.get('/datastaff', getStaffData);
  *         description: Error Connection to DB
  */
 router.post('/datastaffId', getStaffDataId);
+/**
+ * @swagger
+ * /api/datastaffId:
+ *   post:
+ *     summary: Get Staff Data by staff_id
+ *     description: Run this URL to View Data Staff by staff_id
+ *     tags: [Data Staff]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               staff_id:
+ *                 type: string
+ *                 description: Entity code identifier
+ *             example:
+ *               staff_id: "MGR"
+ *     responses:
+ *       200:
+ *         description: Successful Select Data 
+ *       404:
+ *         description: No Data on DB
+ *       500:
+ *         description: Error Connection to DB
+ */
 router.put('/updatestaff', updateStaffData);
+/**
+ * @swagger
+ * /api/updatestaff:
+ *   put:
+ *     summary: update Staff on Fa Fasset
+ *     description: Run this URL to update Staff on Fa Fasset
+ *     tags: [Data Staff]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *                 entity_cd:
+ *                   type: string
+ *                 reg_id:
+ *                   type: string
+ *                 staff_id:
+ *                   type: string
+ *                 div_cd:
+ *                   type: string
+ *                 dept_cd:
+ *                   type: string
+ *             example:
+ *               entity_cd: "01"
+ *               reg_id: "002/RNV1/BTID/IV/13"
+ *               staff_id: "MGR"
+ *               div_cd: "0101"
+ *               dept_cd: "01"
+ *     responses:
+ *       200:
+ *         description: Successful Select Data 
+ *       404:
+ *         description: No Data on DB
+ *       500:
+ *         description: Error Connection to DB
+ */
+
 
 router.post("/get-asset", DataWhere);
 /**
