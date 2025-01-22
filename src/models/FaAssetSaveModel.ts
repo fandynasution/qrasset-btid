@@ -286,7 +286,7 @@ export const UpdatetoFassetTrx = async (
             }
         }
     } catch (error) {
-        console.error('Error syncing data to fa_fasset_trx:', error);
+        logger.error('Error syncing data to fa_fasset_trx:', error);
         throw error;
     }
 }

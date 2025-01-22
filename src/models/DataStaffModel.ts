@@ -1,7 +1,47 @@
 import { poolPromise } from '../lib/db';
 import * as sql from 'mssql';
+import fs from 'fs';
+import path from 'path';
+import logger from "../logger";
+import { createLogger, format, transports } from "winston";
+
+// Folder log
+const logDir = path.join(__dirname, '../storage/log');
+
+// Pastikan folder log ada
+if (!fs.existsSync(logDir)) {
+    fs.mkdirSync(logDir, { recursive: true });
+}
+
+// Format tanggal untuk nama file
+const getLogFileName = () => {
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `log-${year}-${month}-${day}.txt`;
+};
 
 export const GetDataStaff = async () => {
+    const storagePath = path.join(__dirname, '..', 'storage', 'qr'); 
+            
+    if (!fs.existsSync(storagePath)) {
+        fs.mkdirSync(storagePath, { recursive: true }); // Create the directory if it doesn't exist
+    }
+
+    
+    // Buat logger
+    const logger = createLogger({
+        level: 'info',
+        format: format.combine(
+            format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
+            format.printf(({ timestamp, level, message }) => `${timestamp} [${level.toUpperCase()}]: ${message}`)
+        ),
+        transports: [
+            new transports.File({ filename: path.join(logDir, getLogFileName()) }), // Simpan ke file log harian
+        ]
+    });
+        
     try {
         const pool = await poolPromise;  // Get the pool
         const result = await pool.request().query(`
@@ -9,15 +49,33 @@ export const GetDataStaff = async () => {
         `);
         return result.recordset;
     } catch (error) {
-        console.error("Error fetching data", error);
+        logger.error("Error fetching data", error);
         throw error;
     }
 };
 
 export const GetDataStaffId = async (staff_id: string) => {
+    const storagePath = path.join(__dirname, '..', 'storage', 'qr'); 
+            
+    if (!fs.existsSync(storagePath)) {
+        fs.mkdirSync(storagePath, { recursive: true }); // Create the directory if it doesn't exist
+    }
+
+    
+    // Buat logger
+    const logger = createLogger({
+        level: 'info',
+        format: format.combine(
+            format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
+            format.printf(({ timestamp, level, message }) => `${timestamp} [${level.toUpperCase()}]: ${message}`)
+        ),
+        transports: [
+            new transports.File({ filename: path.join(logDir, getLogFileName()) }), // Simpan ke file log harian
+        ]
+    });
+        
     try {
         const pool = await poolPromise;  // Get the pool
-        console.log(staff_id);
         const result = await pool.request()
             .input('staff_id', sql.VarChar, staff_id)
             .query(`
@@ -26,7 +84,7 @@ export const GetDataStaffId = async (staff_id: string) => {
             `);
         return result.recordset;
     } catch (error) {
-        console.error("Error fetching data", error);
+        logger.error("Error fetching data", error);
         throw error;
     }
 };
@@ -38,6 +96,25 @@ export const saveDataStaffAsset = async (
     div_cd: string,
     dept_cd: string,
 ) => {
+    const storagePath = path.join(__dirname, '..', 'storage', 'qr'); 
+            
+    if (!fs.existsSync(storagePath)) {
+        fs.mkdirSync(storagePath, { recursive: true }); // Create the directory if it doesn't exist
+    }
+
+    
+    // Buat logger
+    const logger = createLogger({
+        level: 'info',
+        format: format.combine(
+            format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
+            format.printf(({ timestamp, level, message }) => `${timestamp} [${level.toUpperCase()}]: ${message}`)
+        ),
+        transports: [
+            new transports.File({ filename: path.join(logDir, getLogFileName()) }), // Simpan ke file log harian
+        ]
+    });
+        
     try {
         const pool = await poolPromise;
         const result = await pool.request()
@@ -52,7 +129,7 @@ export const saveDataStaffAsset = async (
             `);
         return result;
     } catch (error) {
-        console.error("Error updating data for Staff:", error);
+        logger.error("Error updating data for Staff:", error);
         throw error;
     }
 };
