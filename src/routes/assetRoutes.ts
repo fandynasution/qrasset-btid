@@ -13,7 +13,22 @@ router.get("/datanonqr", DatanonQr);
 router.get("/datawithqr", DatawithQr);
 router.put('/update-print', DataUpdatePrint);
 router.get('/datastaff', getStaffData);
-router.get('/datastaffId', getStaffDataId);
+/**
+ * @swagger
+ * /api/datastaff:
+ *   get:
+ *     summary: Get Staff Data
+ *     description: Run this URL to View Data Staff
+ *     tags: [Data Staff]
+ *     responses:
+ *       200:
+ *         description: Successful Select Data 
+ *       404:
+ *         description: No Data on DB
+ *       500:
+ *         description: Error Connection to DB
+ */
+router.post('/datastaffId', getStaffDataId);
 router.put('/updatestaff', updateStaffData);
 
 router.post("/get-asset", DataWhere);
