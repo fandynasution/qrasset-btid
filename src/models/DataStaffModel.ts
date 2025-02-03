@@ -89,6 +89,41 @@ export const GetDataStaffId = async (staff_id: string) => {
     }
 };
 
+export const GetDataStaffEmail = async (email: string) => {
+    const storagePath = path.join(__dirname, '..', 'storage', 'qr'); 
+            
+    if (!fs.existsSync(storagePath)) {
+        fs.mkdirSync(storagePath, { recursive: true }); // Create the directory if it doesn't exist
+    }
+
+    
+    // Buat logger
+    const logger = createLogger({
+        level: 'info',
+        format: format.combine(
+            format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
+            format.printf(({ timestamp, level, message }) => `${timestamp} [${level.toUpperCase()}]: ${message}`)
+        ),
+        transports: [
+            new transports.File({ filename: path.join(logDir, getLogFileName()) }), // Simpan ke file log harian
+        ]
+    });
+        
+    try {
+        const pool = await poolPromise;  // Get the pool
+        const result = await pool.request()
+            .input('email', sql.VarChar, email)
+            .query(`
+                SELECT * FROM mgr.v_fa_fasset_staff_data
+                WHERE email_add = @email
+            `);
+        return result.recordset;
+    } catch (error) {
+        logger.error("Error fetching data", error);
+        throw error;
+    }
+};
+
 export const saveDataStaffAsset = async (
     entity_cd: string, 
     reg_id: string,

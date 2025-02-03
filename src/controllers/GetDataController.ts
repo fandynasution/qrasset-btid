@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { GetDataStaff, saveDataStaffAsset, GetDataStaffId } from "../models/DataStaffModel"
+import { GetDataStaff, saveDataStaffAsset, GetDataStaffId, GetDataStaffEmail } from "../models/DataStaffModel"
 import QRCode from 'qrcode';
 import fs from 'fs';
 import path from 'path';
@@ -83,6 +83,49 @@ export const getStaffDataId = async (req: Request, res: Response) => {
     try {
         const { staff_id } = req.body; // Ambil staff_id dari req.params
         const datanonQr = await GetDataStaffId(staff_id); // Panggil GetDataStaffId dengan staff_id
+
+        if (datanonQr.length === 0) {
+            const errorMessage = "No data Staff found on Database";
+            logger.info(errorMessage); // Log info
+            return res.status(404).json({
+                success: true,
+                message: errorMessage,
+            });
+        }
+
+        logger.info('Success get Data Staff from Database');
+
+        res.status(200).json({
+            success: true,
+            message: "Success",
+            data: datanonQr
+        });
+    } catch (error) {
+        logger.error(`Failed to Fetch Data: ${error instanceof Error ? error.message : error}`);
+        res.status(500).json({
+            success: false,
+            message: "Failed to Fetch Data",
+            error: error instanceof Error ? error.message : "Unknown error occurred",
+        });
+    }
+};
+
+export const getStaffDataEmail = async (req: Request, res: Response) => {
+    const logDir = path.join(__dirname, '..', 'logs'); // Tambahkan logDir
+    const logger = createLogger({
+        level: 'info',
+        format: format.combine(
+            format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
+            format.printf(({ timestamp, level, message }) => `${timestamp} [${level.toUpperCase()}]: ${message}`)
+        ),
+        transports: [
+            new transports.File({ filename: path.join(logDir, 'daily.log') }) // Simpan ke file log harian
+        ]
+    });
+
+    try {
+        const { email } = req.body; // Ambil staff_id dari req.params
+        const datanonQr = await GetDataStaffEmail(email); // Panggil GetDataStaffId dengan staff_id
 
         if (datanonQr.length === 0) {
             const errorMessage = "No data Staff found on Database";

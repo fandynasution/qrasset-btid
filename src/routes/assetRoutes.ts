@@ -3,7 +3,7 @@ import { generateAndSaveQrCode, generateOneQrCode } from '../controllers/QrCodeC
 import { DatanonQr, DatawithQr, DataWhere, DataUpdatePrint, DataWhereTrx } from '../controllers/FaAssetController';
 import { UpdateAsset } from '../controllers/SaveFaAssetController';
 
-import { getStaffData, getStaffDataId, updateStaffData } from '../controllers/GetDataController';
+import { getStaffData, getStaffDataId, updateStaffData, getStaffDataEmail } from '../controllers/GetDataController';
 
 const router = express.Router();
 
@@ -48,6 +48,34 @@ router.post('/datastaffId', getStaffDataId);
  *                 description: Entity code identifier
  *             example:
  *               staff_id: "MGR"
+ *     responses:
+ *       200:
+ *         description: Successful Select Data 
+ *       404:
+ *         description: No Data on DB
+ *       500:
+ *         description: Error Connection to DB
+ */
+router.post('/datastaffEmail', getStaffDataEmail);
+/**
+ * @swagger
+ * /api/datastaffEmail:
+ *   post:
+ *     summary: Get Staff Data by staff Email
+ *     description: Run this URL to View Data Staff by staff Email
+ *     tags: [Data Staff]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 description: Email Address identifier
+ *             example:
+ *               email: "mgr@ifca.co.id"
  *     responses:
  *       200:
  *         description: Successful Select Data 
