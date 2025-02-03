@@ -2,8 +2,9 @@ import express from 'express';
 import { generateAndSaveQrCode, generateOneQrCode } from '../controllers/QrCodeController';
 import { DatanonQr, DatawithQr, DataWhere, DataUpdatePrint, DataWhereTrx } from '../controllers/FaAssetController';
 import { UpdateAsset } from '../controllers/SaveFaAssetController';
-
 import { getStaffData, getStaffDataId, updateStaffData, getStaffDataEmail } from '../controllers/GetDataController';
+
+import { getDivData, getDeptData } from '../controllers/DivDeptDataController';
 
 const router = express.Router();
 
@@ -249,4 +250,6 @@ router.put('/update-asset', UpdateAsset);
  *       500:
  *         description: Error connecting to the database
  */
+router.get('/getDiv', getDivData);
+router.get('/getDept', getDeptData);
 export default router;
