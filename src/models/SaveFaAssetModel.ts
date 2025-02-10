@@ -12,6 +12,7 @@ const logDir = path.join(__dirname, '../storage/log');
 if (!fs.existsSync(logDir)) {
     fs.mkdirSync(logDir, { recursive: true });
 }
+//aa
 
 // Format tanggal untuk nama file
 const getLogFileName = () => {
