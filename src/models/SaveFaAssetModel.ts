@@ -166,10 +166,11 @@ export const syncToFassetTrx = async (
                 .query(`
                     INSERT INTO mgr.fa_fasset_trx 
                     (entity_cd, reg_id, trx_date, old_location_map, new_location_map, old_status_review, new_status_review, note, audit_status, audit_user, audit_date, 
-                    url_file_attachment, url_file_attachment2, url_file_attachment3)
+                    url_file_attachment, url_file_attachment2, url_file_attachment3, staff_id, staff_name)
                     VALUES 
                     (@entity_cd, @reg_id, GETDATE(), null, @new_location_map, null, @new_status_review, @note, @audit_status, 'WEBAPI', GETDATE(),
-                    @url_file_attachment, @url_file_attachment2, @url_file_attachment3)
+                    @url_file_attachment, @url_file_attachment2, @url_file_attachment3, (SELECT staff_id FROM mgr.fa_fasset WHERE entity_cd = @entity_cd AND reg_id = @reg_id), 
+                    (SELECT staff_name FROM mgr.cf_staff WHERE staff_id = (SELECT staff_id FROM mgr.fa_fasset WHERE entity_cd = @entity_cd AND reg_id = @reg_id)))
                 `);
         } else {
             // Optimasi: Gunakan nilai existingData jika updates bernilai null
@@ -194,10 +195,11 @@ export const syncToFassetTrx = async (
                 .query(`
                     INSERT INTO mgr.fa_fasset_trx 
                     (entity_cd, reg_id, trx_date, old_location_map, new_location_map, old_status_review, new_status_review, note, audit_status, audit_user, audit_date, 
-                    url_file_attachment, url_file_attachment2, url_file_attachment3)
+                    url_file_attachment, url_file_attachment2, url_file_attachment3, staff_id, staff_name)
                     VALUES 
                     (@entity_cd, @reg_id, GETDATE(), @old_location_map, @new_location_map, @old_status_review, @new_status_review, @note, @audit_status, 'WEBAPI', GETDATE(),
-                    @url_file_attachment, @url_file_attachment2, @url_file_attachment3)
+                    @url_file_attachment, @url_file_attachment2, @url_file_attachment3, (SELECT staff_id FROM mgr.fa_fasset WHERE entity_cd = @entity_cd AND reg_id = @reg_id), 
+                    (SELECT staff_name FROM mgr.cf_staff WHERE staff_id = (SELECT staff_id FROM mgr.fa_fasset WHERE entity_cd = @entity_cd AND reg_id = @reg_id)))
                 `);
 
             // Update jika ada perbedaan untuk note atau audit_status
@@ -208,7 +210,9 @@ export const syncToFassetTrx = async (
                     .input('note', sql.VarChar, note)
                     .query(`
                         UPDATE mgr.fa_fasset_trx
-                        SET note = @note
+                        SET note = @note,
+                        staff_id = (SELECT staff_id FROM mgr.fa_fasset WHERE entity_cd = @entity_cd AND reg_id = @reg_id),
+                        staff_name = (SELECT staff_name FROM mgr.cf_staff WHERE staff_id = (SELECT staff_id FROM mgr.fa_fasset WHERE entity_cd = @entity_cd AND reg_id = @reg_id)))
                         WHERE entity_cd = @entity_cd 
                         AND reg_id = @reg_id
                         AND trx_date = (
@@ -227,7 +231,10 @@ export const syncToFassetTrx = async (
                     .input('audit_status', sql.VarChar, auditStatus)
                     .query(`
                         UPDATE mgr.fa_fasset_trx
-                        SET audit_status = @audit_status
+                        SET 
+                        audit_status = @audit_status,
+                        staff_id = (SELECT staff_id FROM mgr.fa_fasset WHERE entity_cd = @entity_cd AND reg_id = @reg_id),
+                        staff_name = (SELECT staff_name FROM mgr.cf_staff WHERE staff_id = (SELECT staff_id FROM mgr.fa_fasset WHERE entity_cd = @entity_cd AND reg_id = @reg_id)))
                         WHERE entity_cd = @entity_cd 
                         AND reg_id = @reg_id
                         AND trx_date = (
