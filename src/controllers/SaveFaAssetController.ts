@@ -4,7 +4,10 @@ import path from 'path';
 import multer from "multer";
 import * as ftp from 'basic-ftp';
 import { createLogger, format, transports } from "winston";
-import { checkAndUpdateAsset, syncToFassetTrx } from '../models/SaveFaAssetModel';
+import { 
+    checkAndUpdateAsset, 
+    syncToFassetTrx 
+} from '../models/SaveFaAssetModel';
 import { getFtpDetails } from '../models/QrCodeModel';
 
 // Ensure the target directory exists
@@ -63,13 +66,14 @@ export const UpdateAsset = async (req: Request, res: Response) => {
     const dataArray = Array.isArray(dataWhereD) ? dataWhereD : [dataWhereD];
 
     // Validate that each entry has the required fields
-    const validateFields = (details: { entity_cd: string; reg_id: string; location_map: string; url_file_attachment: string; status_review: string }) => {
+    const validateFields = (details: { entity_cd: string; reg_id: string; location_map: string; status_review: string, url_file_attachment: string;  }) => {
         const missingFields = [];
         if (!details.entity_cd) missingFields.push("entity_cd");
         if (!details.reg_id) missingFields.push("reg_id");
         if (!details.location_map) missingFields.push("location_map");
-        if (!details.url_file_attachment) missingFields.push("url_file_attachment");
         if (!details.status_review) missingFields.push("status_review");
+        if (!details.status_review) missingFields.push("notes");
+        if (!details.url_file_attachment) missingFields.push("url_file_attachment");
         return missingFields;
     };
 
@@ -107,84 +111,99 @@ export const UpdateAsset = async (req: Request, res: Response) => {
     try {
         for (const dataItem of dataArray) {
             const { entity_cd, reg_id, url_file_attachment, status_review, notes, location_map, audit_status } = dataItem;
-
+        
             logger.info(`Processing data for entity_cd: ${entity_cd} and reg_id: ${reg_id}`);
+            // let ftpUrl: string | null = null;
+            let ftpUrls: string[] = []; // Gunakan array untuk menyimpan semua URL
 
-            // Upload ke FTP jika url_file_attachment ada
-            let ftpUrl: string | null = null;
-            if (url_file_attachment) {
+            if (url_file_attachment && Array.isArray(url_file_attachment)) {
                 try {
-                    // Decode Base64 URI dan simpan sebagai file gambar
-                    const base64Data = url_file_attachment.replace(/^data:image\/\w+;base64,/, '');
-                    const fileExtension = url_file_attachment.match(/\/(.*?)\;/)?.[1] || 'png'; // Ekstensi gambar
-                    const sanitizedRegId = reg_id.replace(/[\\/]/g, '_');
-                    const tempFileName = `Asset_${entity_cd}_${sanitizedRegId}.${fileExtension}`;
-                    const tempDir = path.join(__dirname, '../../storage/temppicture');
-                    if (!fs.existsSync(tempDir)) {
-                        fs.mkdirSync(tempDir, { recursive: true });
-                        logger.info(`Directory created: ${tempDir}`);
+                    for (let i = 0; i < url_file_attachment.length; i++) {
+                        const fileAttachment = url_file_attachment[i];
+                        if (fileAttachment && fileAttachment.file_data) {
+                            // Decode Base64
+                            const base64Data = fileAttachment.file_data.replace(/^data:image\/\w+;base64,/, '');
+                            
+                            // Dapatkan ekstensi file
+                            const fileExtension = fileAttachment.file_data.match(/\/(.*?)\;/)?.[1] || 'png';
+
+
+                            const now = new Date();
+                            const todayDate =  now.toISOString().slice(0, 16).replace(/[:.-]/g, '_');
+                        
+                            const sanitizedRegId = reg_id.replace(/[\\/]/g, '_');
+                            const tempFileName = `Asset_${entity_cd}_${sanitizedRegId}_${todayDate}_${i}.${fileExtension}`;
+                            const tempDir = path.join(__dirname, '../../storage/temppicture');
+
+                            // Buat direktori jika belum ada
+                            if (!fs.existsSync(tempDir)) {
+                                fs.mkdirSync(tempDir, { recursive: true });
+                                logger.info(`Directory created: ${tempDir}`);
+                            }
+
+                            const tempFilePath = path.join(tempDir, tempFileName);
+                            fs.writeFileSync(tempFilePath, base64Data, { encoding: 'base64' });
+
+                            // Upload ke FTP
+                            const ftpClient = new ftp.Client();
+                            ftpClient.ftp.verbose = true;
+
+                            const ftpDetails = await getFtpDetails();
+
+                            await ftpClient.access({
+                                host: ftpDetails.FTPServer,
+                                port: parseInt(ftpDetails.FTPPort, 10),
+                                user: ftpDetails.FTPUser,
+                                password: ftpDetails.FTPPassword,
+                                secure: false,
+                            });
+
+                            const remoteFolderPath = `/ifca-att/FAAssetUpload/AssetPicture/`;
+                            await ftpClient.ensureDir(remoteFolderPath);
+                            
+                            const remoteFilePath = `${remoteFolderPath}${tempFileName}`;
+                            await ftpClient.uploadFrom(tempFilePath, remoteFilePath);
+
+                            // Simpan URL dalam array
+                            ftpUrls.push(`${ftpDetails.qrview}${remoteFilePath}`);
+
+                            // Hapus file sementara
+                            fs.unlinkSync(tempFilePath);
+                            ftpClient.close();
+                        } else {
+                            logger.error(`file_data is undefined for attachment at index ${i}`);
+                        }
                     }
-                    const tempFilePath = path.join(tempDir, tempFileName);
-
-                    fs.writeFileSync(tempFilePath, base64Data, { encoding: 'base64' });
-                    logger.info(`Temporary file created at: ${tempFilePath}`);
-
-                    // Upload file ke server FTP
-                    const ftpClient = new ftp.Client();
-                    ftpClient.ftp.verbose = true; // Untuk debugging
-
-                    const ftpDetails = await getFtpDetails();
-
-                    await ftpClient.access({
-                        host: ftpDetails.FTPServer, // Ganti dengan host FTP Anda
-                        port: parseInt(ftpDetails.FTPPort, 10),
-                        user: ftpDetails.FTPUser,       // Username FTP
-                        password: ftpDetails.FTPPassword,// Password FTP
-                        secure: false,           // Atur ke true jika menggunakan FTPS
-                    });
-
-                    // Pastikan folder di FTP ada
-                    const remoteFolderPath = `/ifca-att/FAAssetUpload/AssetPicture/`;
-                    await ftpClient.ensureDir(remoteFolderPath); // Membuat folder jika belum ada
-                    logger.info(`Ensured folder exists: ${remoteFolderPath}`);
-
-                    const remoteFilePath = `${remoteFolderPath}${tempFileName}`;
-                    await ftpClient.uploadFrom(tempFilePath, remoteFilePath);
-                    logger.info(`File uploaded to FTP: ${remoteFilePath}`);
-
-                    // Simpan URL FTP
-                    ftpUrl = `${ftpDetails.qrview}${remoteFolderPath}${tempFileName}`;
-
-                    // Hapus file sementara setelah diunggah
-                    fs.unlinkSync(tempFilePath);
-                    logger.info(`Temporary file deleted: ${tempFilePath}`);
-
-                    ftpClient.close();
                 } catch (ftpError) {
                     logger.error(`FTP upload failed for entity_cd: ${entity_cd}, reg_id: ${reg_id}. Error: ${ftpError}`);
-                    ftpUrl = null; // Tetapkan null jika terjadi kesalahan
                 }
+            } else {
+                logger.error('url_file_attachment is not an array or is undefined');
             }
+
+            // Gabungkan URL dengan pemisah jika database hanya mendukung satu kolom string
+            const ftpUrlString = ftpUrls.length > 0 ? ftpUrls.join(';') : null;
 
             // Data untuk diperbarui
             const fassetUpdates: { [key: string]: string | null } = {
-                url_file_attachment: ftpUrl, // Tetap null jika FTP gagal
+                url_file_attachment: ftpUrlString, // Tetap null jika FTP gagal
                 status_review: status_review || null,
                 location_map: location_map || null,
             };
-
+        
             // Panggil fungsi untuk menyimpan data
             await checkAndUpdateAsset(entity_cd, reg_id, fassetUpdates);
-
+        
             // Data untuk tabel `mgr.fa_fasset_trx`
             const fassetTrxUpdates: { [key: string]: string | null } = {
                 new_status_review: status_review || null,
                 note: notes || null,
                 new_location_map: location_map || null,
                 audit_status: audit_status || null,
+                url_file_attachment: ftpUrlString,
             };
             await syncToFassetTrx(entity_cd, reg_id, fassetTrxUpdates);
-
+        
             logger.info(`Successfully updated data for entity_cd: ${entity_cd}, reg_id: ${reg_id}`);
         }
 
