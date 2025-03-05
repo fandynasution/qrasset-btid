@@ -211,21 +211,27 @@ router.put('/update-asset', UpdateAsset);
  *               entity_cd:
  *                 type: string
  *                 description: Entity code identifier
+ *                 example: "01"
  *               reg_id:
  *                 type: string
  *                 description: Registration ID of the asset
+ *                 example: "025/EQP/BTID/VII/18"
  *               location_map:
  *                 type: string
  *                 description: Geographical coordinates (latitude and longitude)
+ *                 example: "-8.7142516, 115.223325"
  *               status_review:
  *                 type: string
- *                 description: Status review identifier
+ *                 description: Status review identifier (1-5)
+ *                 example: "5"
  *               notes:
  *                 type: string
  *                 description: Additional notes about the asset
+ *                 example: "Main office"
  *               audit_status:
  *                 type: string
  *                 description: Indicates if the asset has been audited ("Y" or "N")
+ *                 example: "Y"
  *               files:
  *                 type: array
  *                 description: List of image files in base64 encoding
