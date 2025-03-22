@@ -76,7 +76,7 @@ router.post('/datastaffEmail', getStaffDataEmail);
  *                 type: string
  *                 description: Email Address identifier
  *             example:
- *               email: "dania.nurmayanti@ifca.co.id"
+ *               email: "handdy.winantha@kurakurabali.com"
  *     responses:
  *       200:
  *         description: Successful Select Data 
