@@ -81,6 +81,7 @@ export const GetDataWithQr = async () => {
         const pool = await poolPromise;  // Get the pool
         const result = await pool.request().query(`
             SELECT * FROM mgr.v_fa_fasset_qrdata WHERE qr_url_attachment IS NOT NULL AND qr_url_attachment <> ''
+            AND status in ('N', 'P')
         `);
         return result.recordset;
     } catch (error) {
